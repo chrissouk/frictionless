@@ -10,11 +10,16 @@ final class FrictionlessUITests: XCTestCase {
 
     private func addTask(_ app: XCUIApplication, name: String) {
         app.buttons["Add task"].firstMatch.tap()
-        let input = app.textFields["task-name"]
+        XCTAssertTrue(app.navigationBars["Manage tasks"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.navigationBars["Add task"].exists)
+        let input = app.textFields["new-task-name"]
         XCTAssertTrue(input.waitForExistence(timeout: 5))
         input.tap()
         input.typeText(name)
-        app.buttons["Save"].tap()
+        app.buttons["Add"].tap()
+        XCTAssertTrue(app.buttons["managed-task-\(name)"].waitForExistence(timeout: 5))
+        capture(app, "Inline task creation")
+        app.navigationBars["Manage tasks"].buttons["Done"].tap()
         XCTAssertTrue(app.buttons["task-\(name)"].waitForExistence(timeout: 5))
     }
 
@@ -26,12 +31,11 @@ final class FrictionlessUITests: XCTestCase {
         capture(app, "Empty tasks")
         addTask(app, name: "Writing")
         app.buttons["Manage tasks"].tap()
-        app.buttons["Add task"].tap()
-        let field = app.textFields["task-name"]
+        let field = app.textFields["new-task-name"]
         XCTAssertTrue(field.waitForExistence(timeout: 5))
         field.tap(); field.typeText("Reading")
-        app.buttons["Save"].tap()
-        app.buttons["Done"].tap()
+        app.buttons["Add"].tap()
+        app.navigationBars["Manage tasks"].buttons["Done"].tap()
         app.buttons["task-Writing"].tap()
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
         app.buttons["task-Reading"].tap()

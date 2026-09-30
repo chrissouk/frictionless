@@ -14,6 +14,10 @@ The complete suite reported `TEST SUCCEEDED`; the final fixture test also report
 
 Inspected rendered empty/task screens, audit bars/timeline, interval editor, and largest-text picker/audit. Also inspected iOS 26 simulator renders during implementation. Saved iOS 17 screenshots: [Tasks](Screenshots/tasks.png), [Audit after correction](Screenshots/audit.png), [Largest-text audit](Screenshots/large-text-audit.png). Screenshot records exist only in explicit debug UI-test storage; normal first launch is empty.
 
+## Task picker update
+
+The three UI tests passed again after replacing the add-task sheet with inline creation in the manager and moving Today / Manage tasks to the bottom. Inspected empty and populated picker screenshots: the background fills the screen. Bottom controls stack vertically at accessibility text sizes; a targeted largest-text test verifies that layout. Storage logic is unchanged; the ten unit tests above were not rerun for this UI-only update.
+
 ## Remaining device checks
 
 No physical iPhone was available for testing. Select your actual developer team and enable the shared App Group on both targets before running on your iPhone. Device provisioning/signing has not been verified.

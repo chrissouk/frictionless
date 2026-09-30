@@ -2,56 +2,70 @@ import SwiftUI
 
 struct TasksView: View {
     @EnvironmentObject private var model: AppModel
+    @Environment(\.dynamicTypeSize) private var textSize
     @State private var audit = false
     @State private var management = false
-    @State private var creation = false
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    if model.state.visibleTasks.isEmpty {
-                        VStack(alignment: .leading, spacing: 20) {
-                            Text("Add a task, then tap it to record.")
-                                .foregroundStyle(.secondary)
-                            Button("Add task", systemImage: "plus") { creation = true }
-                                .buttonStyle(.borderedProminent).foregroundStyle(Theme.background)
-                                .frame(minHeight: 44)
-                        }.padding(.vertical, 48)
-                    }
-                    ForEach(model.state.visibleTasks) { task in
-                        taskRow(task)
-                        Divider()
-                    }
-                    if model.state.active != nil {
-                        Button("Stop tracking", systemImage: "stop.circle") {
-                            Task { await model.select(nil) }
-                        }.frame(minHeight: 56).padding(.top, 20)
-                    }
-                    if let notice = model.presentationNotice {
-                        Text(notice).font(.footnote).foregroundStyle(.secondary).padding(.top, 16)
-                    }
-                }.padding(.horizontal, 24)
+            ZStack {
+                Theme.background.ignoresSafeArea()
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        if model.state.visibleTasks.isEmpty {
+                            VStack(alignment: .leading, spacing: 20) {
+                                Text("Add a task, then tap it to record.")
+                                    .foregroundStyle(.secondary)
+                                Button("Add task", systemImage: "plus") { management = true }
+                                    .buttonStyle(.borderedProminent).foregroundStyle(Theme.background)
+                                    .frame(minHeight: 44)
+                            }.padding(.vertical, 48)
+                        }
+                        ForEach(model.state.visibleTasks) { task in
+                            taskRow(task)
+                            Divider()
+                        }
+                        if model.state.active != nil {
+                            Button("Stop tracking", systemImage: "stop.circle") {
+                                Task { await model.select(nil) }
+                            }.frame(minHeight: 56).padding(.top, 20)
+                        }
+                        if let notice = model.presentationNotice {
+                            Text(notice).font(.footnote).foregroundStyle(.secondary).padding(.top, 16)
+                        }
+                    }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 24)
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .background(Theme.background).foregroundStyle(Theme.text)
+            .foregroundStyle(Theme.text)
             .navigationTitle("Tasks")
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Today") { audit = true }.frame(minHeight: 44)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Manage tasks", systemImage: "slider.horizontal.3") { management = true }
-                        .frame(minWidth: 44, minHeight: 44)
-                }
+            .toolbarBackground(Theme.background, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                VStack(spacing: 0) {
+                    undoBar
+                    bottomLayout {
+                        Button("Today", systemImage: "calendar") { audit = true }
+                            .frame(minHeight: 44)
+                        if !textSize.isAccessibilitySize { Spacer() }
+                        Button("Manage tasks", systemImage: "list.bullet") { management = true }
+                            .frame(minHeight: 44)
+                    }.font(.subheadline).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                        .padding(.horizontal, 24).padding(.vertical, 8)
+                }.background(Theme.background.ignoresSafeArea(edges: .bottom))
             }
-            .safeAreaInset(edge: .bottom) { undoBar }
             .sheet(isPresented: $audit) { AuditView() }
             .sheet(isPresented: $management) { ManageTasksView() }
-            .sheet(isPresented: $creation) { TaskEditorView() }
             .onOpenURL { url in
-                if url.scheme == "frictionless" { audit = false; management = false; creation = false }
+                if url.scheme == "frictionless" { audit = false; management = false }
             }
+        }.background(Theme.background.ignoresSafeArea())
+    }
+
+    private var bottomLayout: AnyLayout {
+        if textSize.isAccessibilitySize {
+            return AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
         }
+        return AnyLayout(HStackLayout())
     }
 
     private func taskRow(_ task: TrackedTask) -> some View {

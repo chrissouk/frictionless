@@ -20,9 +20,9 @@ Changing the App Group creates a separate database; retain the old group to reta
 
 ## Use
 
-- Add a name, then tap its row to record. Same-task taps do nothing. Stop tracking is explicit. Undo lasts eight seconds and expires after later changes.
+- Add task opens the manager. Enter names inline with New task, then tap a task in the picker to record. Same-task taps do nothing. Stop tracking is explicit. Undo lasts eight seconds and expires after later changes.
 - Manage tasks to rename, reorder, choose a muted color, archive, or select up to three Live Activity shortcuts. The first three tasks are initial shortcuts. Archive retains history and stops an active task.
-- Today opens duration bars and a timeline with untracked gaps. Tap an interval to correct it. “Started earlier” offers 5/15/30-minute offsets. Moving a shared switch boundary also adjusts the previous task’s end. Invalid overlaps, negative durations, and future edits are rejected.
+- Today and Manage tasks sit at the bottom of the picker. Today opens duration bars and a timeline with untracked gaps. Tap an interval to correct it. “Started earlier” offers 5/15/30-minute offsets. Moving a shared switch boundary also adjusts the previous task’s end. Invalid overlaps, negative durations, and future edits are rejected.
 - Live Activity shortcut buttons switch directly. All tasks and the activity body open the picker. Standard system touch-and-hold expands the Dynamic Island.
 
 **Eight-hour limitation:** Live Activity presentation expires after eight hours. Timestamp-based recording continues. The next eligible interaction restores presentation without splitting the interval. There is no automatic renewal, background timer, or push service.
