@@ -1,0 +1,4 @@
+// Set your team in Xcode or a local untracked Local.xcconfig.
+APP_BUNDLE_ID = com.chrissouk.frictionless
+APP_GROUP_ID = group.$(APP_BUNDLE_ID)
+#include? "Local.xcconfig"

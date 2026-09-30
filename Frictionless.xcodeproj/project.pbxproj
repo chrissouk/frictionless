@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F1DA309CBF5395E229BEA9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
+		1223A01DE802BF0F0B7273E8 /* RecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929F088BA1D92B5D5A1300C /* RecordingTests.swift */; };
+		1942E32CA4D88C5183519FEB /* IntervalEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F48C3B0CD22FECE9130C1 /* IntervalEditorView.swift */; };
+		28C45DA5913D3166D96290F7 /* FrictionlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD93EEE0256138F857C2CB /* FrictionlessApp.swift */; };
+		28F2A9E2D3AD5E986B4901C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D16623831BB9420F63406 /* Models.swift */; };
+		29CD525D39970FCA09797FC7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED45196CF356CE29141AF4 /* Theme.swift */; };
+		34E03561669253696E581853 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90589EBA84A50922258E7FA2 /* LiveRecording.swift */; };
+		38006F98E23D2D8564A47C84 /* FrictionlessLiveActivity.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3AF5DAEB2E3AF0D9B6394133 /* AuditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3FDDA211EFC7C8831A4F3 /* AuditView.swift */; };
+		437ECA997269AA004955FC0F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D16623831BB9420F63406 /* Models.swift */; };
+		580F0151FBF859AE8412856B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
+		5A23EA1948D80DC2C52FA781 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D224DB40398A877097217799 /* libsqlite3.tbd */; };
+		6540F6EAB935EFD42668B003 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED45196CF356CE29141AF4 /* Theme.swift */; };
+		6FF9AB105AB70E2ABB56671A /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */; };
+		730953C71AE8D424FFDD966B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
+		750D96A3D546DC98E9188D4F /* FrictionlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3FD43B95CFD7A2F4885B09 /* FrictionlessUITests.swift */; };
+		7A2E1A0574A30A3C333386E2 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642866DA92DF85E031F3C7DA /* AppModel.swift */; };
+		99970CC9559ED012F370C3A1 /* ManageTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E501006295B287C4E9E08 /* ManageTasksView.swift */; };
+		B4BB82211F8FCCE98D80A09D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
+		B5C7FFB69F952B52ED52E484 /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */; };
+		DFD13D21A7EFDF35F294838E /* FrictionlessActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F256B9881E7A4379F221D7B /* FrictionlessActivity.swift */; };
+		E2FDB7BCDB1A0D8C9E68C0B9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E47B4D57E4244D88A0D816 /* libsqlite3.tbd */; };
+		F38C236E3B4CE87CBC6B4EA2 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90589EBA84A50922258E7FA2 /* LiveRecording.swift */; };
+		FB1993104D509752B80AEB0C /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AF5541CAFA68E04EDF251 /* TasksView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34EA133E5151BB121630AB3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4D44809461FBCE34AA89946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 517FD0FC2B3AFEFBDC307C69;
+			remoteInfo = Frictionless;
+		};
+		AC404E34A32A091E38EE9A7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4D44809461FBCE34AA89946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81ADC01FBB235BE0867AE9A6;
+			remoteInfo = FrictionlessLiveActivity;
+		};
+		CF4052FDD423C200867403CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4D44809461FBCE34AA89946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 517FD0FC2B3AFEFBDC307C69;
+			remoteInfo = Frictionless;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		54A7B4C02131FABB84173B83 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				38006F98E23D2D8564A47C84 /* FrictionlessLiveActivity.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		107F48C3B0CD22FECE9130C1 /* IntervalEditorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntervalEditorView.swift; path = App/IntervalEditorView.swift; sourceTree = "<group>"; };
+		16FD93EEE0256138F857C2CB /* FrictionlessApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessApp.swift; path = App/FrictionlessApp.swift; sourceTree = "<group>"; };
+		21BFD3C763EB9274DD9416FD /* FrictionlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FrictionlessLiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		280AF5541CAFA68E04EDF251 /* TasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TasksView.swift; path = App/TasksView.swift; sourceTree = "<group>"; };
+		2C05347AAC4874637B630AE0 /* Frictionless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frictionless.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F256B9881E7A4379F221D7B /* FrictionlessActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessActivity.swift; path = LiveActivity/FrictionlessActivity.swift; sourceTree = "<group>"; };
+		642866DA92DF85E031F3C7DA /* AppModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModel.swift; path = App/AppModel.swift; sourceTree = "<group>"; };
+		6F5D16623831BB9420F63406 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Models.swift; path = Shared/Models.swift; sourceTree = "<group>"; };
+		772E501006295B287C4E9E08 /* ManageTasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManageTasksView.swift; path = App/ManageTasksView.swift; sourceTree = "<group>"; };
+		80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Signing.xcconfig; path = Configuration/Signing.xcconfig; sourceTree = "<group>"; };
+		84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingStore.swift; path = Shared/RecordingStore.swift; sourceTree = "<group>"; };
+		90589EBA84A50922258E7FA2 /* LiveRecording.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveRecording.swift; path = Shared/LiveRecording.swift; sourceTree = "<group>"; };
+		9B3FD43B95CFD7A2F4885B09 /* FrictionlessUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessUITests.swift; path = UITests/FrictionlessUITests.swift; sourceTree = "<group>"; };
+		A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A929F088BA1D92B5D5A1300C /* RecordingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingTests.swift; path = Tests/RecordingTests.swift; sourceTree = "<group>"; };
+		B97F02C09AD31F0C4E94DDFC /* FrictionlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E3FDDA211EFC7C8831A4F3 /* AuditView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuditView.swift; path = App/AuditView.swift; sourceTree = "<group>"; };
+		C7E47B4D57E4244D88A0D816 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D224DB40398A877097217799 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D6ED45196CF356CE29141AF4 /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Shared/Theme.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01386F519CF4ADD95EBD67A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4BB82211F8FCCE98D80A09D /* Foundation.framework in Frameworks */,
+				5A23EA1948D80DC2C52FA781 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2635CC509765DB20317A11F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				730953C71AE8D424FFDD966B /* Foundation.framework in Frameworks */,
+				E2FDB7BCDB1A0D8C9E68C0B9 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27B53B469DC288A5ACEFDAD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F1DA309CBF5395E229BEA9B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD1D37E6F6460EB5878B9A31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580F0151FBF859AE8412856B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F8D3051EAF3E203F883DFE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C05347AAC4874637B630AE0 /* Frictionless.app */,
+				265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */,
+				B97F02C09AD31F0C4E94DDFC /* FrictionlessTests.xctest */,
+				21BFD3C763EB9274DD9416FD /* FrictionlessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6970C591EDE363406692D4F3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C611DF3787F7784E9802A10A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6970C591EDE363406692D4F3 /* iOS */,
+				D224DB40398A877097217799 /* libsqlite3.tbd */,
+				C7E47B4D57E4244D88A0D816 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D089F2AC49A8F90EAE87610F = {
+			isa = PBXGroup;
+			children = (
+				3F8D3051EAF3E203F883DFE1 /* Products */,
+				C611DF3787F7784E9802A10A /* Frameworks */,
+				84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */,
+				6F5D16623831BB9420F63406 /* Models.swift */,
+				D6ED45196CF356CE29141AF4 /* Theme.swift */,
+				90589EBA84A50922258E7FA2 /* LiveRecording.swift */,
+				C7E3FDDA211EFC7C8831A4F3 /* AuditView.swift */,
+				107F48C3B0CD22FECE9130C1 /* IntervalEditorView.swift */,
+				642866DA92DF85E031F3C7DA /* AppModel.swift */,
+				772E501006295B287C4E9E08 /* ManageTasksView.swift */,
+				16FD93EEE0256138F857C2CB /* FrictionlessApp.swift */,
+				280AF5541CAFA68E04EDF251 /* TasksView.swift */,
+				4F256B9881E7A4379F221D7B /* FrictionlessActivity.swift */,
+				A929F088BA1D92B5D5A1300C /* RecordingTests.swift */,
+				9B3FD43B95CFD7A2F4885B09 /* FrictionlessUITests.swift */,
+				80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1948EA2B74FA745BA0F68BA5 /* FrictionlessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EB6EF8C353FD42634220654 /* Build configuration list for PBXNativeTarget "FrictionlessTests" */;
+			buildPhases = (
+				41D4879AFA6AA08EBF7DBC94 /* Sources */,
+				BD1D37E6F6460EB5878B9A31 /* Frameworks */,
+				62B109B3637EEE05233AC717 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				872267041A2EE52F19B2C033 /* PBXTargetDependency */,
+			);
+			name = FrictionlessTests;
+			productName = FrictionlessTests;
+			productReference = B97F02C09AD31F0C4E94DDFC /* FrictionlessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3D769C3E2B21DFB82436D94F /* FrictionlessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 118F4250B0E50F8674DEF1E6 /* Build configuration list for PBXNativeTarget "FrictionlessUITests" */;
+			buildPhases = (
+				F1123B1B844479C7C590D25C /* Sources */,
+				27B53B469DC288A5ACEFDAD0 /* Frameworks */,
+				A9944B60789018F07BA77A73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A6C2BEADFD24139E19A86CE /* PBXTargetDependency */,
+			);
+			name = FrictionlessUITests;
+			productName = FrictionlessUITests;
+			productReference = 21BFD3C763EB9274DD9416FD /* FrictionlessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		517FD0FC2B3AFEFBDC307C69 /* Frictionless */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD9234124C4C4A66C1A5469 /* Build configuration list for PBXNativeTarget "Frictionless" */;
+			buildPhases = (
+				9061A21DCD81A5DA89DABCB8 /* Sources */,
+				01386F519CF4ADD95EBD67A1 /* Frameworks */,
+				059EEEC454107E60D45B5E67 /* Resources */,
+				54A7B4C02131FABB84173B83 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				651E164949E1EB914957D636 /* PBXTargetDependency */,
+			);
+			name = Frictionless;
+			productName = Frictionless;
+			productReference = 2C05347AAC4874637B630AE0 /* Frictionless.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81ADC01FBB235BE0867AE9A6 /* FrictionlessLiveActivity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8E57882B4D7DF7EAF56547B /* Build configuration list for PBXNativeTarget "FrictionlessLiveActivity" */;
+			buildPhases = (
+				00CB5881BB309163F9FB10C7 /* Sources */,
+				2635CC509765DB20317A11F8 /* Frameworks */,
+				1218C9E9E90367F067B0F2B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrictionlessLiveActivity;
+			productName = FrictionlessLiveActivity;
+			productReference = 265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4D44809461FBCE34AA89946 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 0FC396A4618AD6FA322E592B /* Build configuration list for PBXProject "Frictionless" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D089F2AC49A8F90EAE87610F;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3F8D3051EAF3E203F883DFE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				517FD0FC2B3AFEFBDC307C69 /* Frictionless */,
+				81ADC01FBB235BE0867AE9A6 /* FrictionlessLiveActivity */,
+				1948EA2B74FA745BA0F68BA5 /* FrictionlessTests */,
+				3D769C3E2B21DFB82436D94F /* FrictionlessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		059EEEC454107E60D45B5E67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1218C9E9E90367F067B0F2B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62B109B3637EEE05233AC717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9944B60789018F07BA77A73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00CB5881BB309163F9FB10C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5C7FFB69F952B52ED52E484 /* RecordingStore.swift in Sources */,
+				437ECA997269AA004955FC0F /* Models.swift in Sources */,
+				29CD525D39970FCA09797FC7 /* Theme.swift in Sources */,
+				F38C236E3B4CE87CBC6B4EA2 /* LiveRecording.swift in Sources */,
+				DFD13D21A7EFDF35F294838E /* FrictionlessActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41D4879AFA6AA08EBF7DBC94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1223A01DE802BF0F0B7273E8 /* RecordingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9061A21DCD81A5DA89DABCB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FF9AB105AB70E2ABB56671A /* RecordingStore.swift in Sources */,
+				28F2A9E2D3AD5E986B4901C5 /* Models.swift in Sources */,
+				6540F6EAB935EFD42668B003 /* Theme.swift in Sources */,
+				34E03561669253696E581853 /* LiveRecording.swift in Sources */,
+				3AF5DAEB2E3AF0D9B6394133 /* AuditView.swift in Sources */,
+				1942E32CA4D88C5183519FEB /* IntervalEditorView.swift in Sources */,
+				7A2E1A0574A30A3C333386E2 /* AppModel.swift in Sources */,
+				99970CC9559ED012F370C3A1 /* ManageTasksView.swift in Sources */,
+				28C45DA5913D3166D96290F7 /* FrictionlessApp.swift in Sources */,
+				FB1993104D509752B80AEB0C /* TasksView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1123B1B844479C7C590D25C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				750D96A3D546DC98E9188D4F /* FrictionlessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		651E164949E1EB914957D636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FrictionlessLiveActivity;
+			target = 81ADC01FBB235BE0867AE9A6 /* FrictionlessLiveActivity */;
+			targetProxy = AC404E34A32A091E38EE9A7C /* PBXContainerItemProxy */;
+		};
+		872267041A2EE52F19B2C033 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Frictionless;
+			target = 517FD0FC2B3AFEFBDC307C69 /* Frictionless */;
+			targetProxy = CF4052FDD423C200867403CC /* PBXContainerItemProxy */;
+		};
+		8A6C2BEADFD24139E19A86CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Frictionless;
+			target = 517FD0FC2B3AFEFBDC307C69 /* Frictionless */;
+			targetProxy = 34EA133E5151BB121630AB3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04C40B1C7C694101C77486DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessUITests";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Frictionless;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A1F9C9C61CBD2E54F84D9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		679BF28DFDD817DF018BAE25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6A9409A4B8878D45AE18BB97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessLiveActivity";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8044C1F9F2118F23141AB32C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessLiveActivity";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9058DE80D3A5999FB9646B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessUITests";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Frictionless;
+			};
+			name = Debug;
+		};
+		A268BC22325C96F367F3C7AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessTests";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frictionless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frictionless";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7819E6B226A7D53BAA6551B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CE6E2AC79EC7BDBBB8F5347B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EF61418A9EA52F7DF809E11B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessTests";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frictionless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frictionless";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FC396A4618AD6FA322E592B /* Build configuration list for PBXProject "Frictionless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A1F9C9C61CBD2E54F84D9C0 /* Debug */,
+				CE6E2AC79EC7BDBBB8F5347B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		118F4250B0E50F8674DEF1E6 /* Build configuration list for PBXNativeTarget "FrictionlessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04C40B1C7C694101C77486DC /* Release */,
+				9058DE80D3A5999FB9646B10 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EB6EF8C353FD42634220654 /* Build configuration list for PBXNativeTarget "FrictionlessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A268BC22325C96F367F3C7AC /* Release */,
+				EF61418A9EA52F7DF809E11B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8E57882B4D7DF7EAF56547B /* Build configuration list for PBXNativeTarget "FrictionlessLiveActivity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8044C1F9F2118F23141AB32C /* Release */,
+				6A9409A4B8878D45AE18BB97 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD9234124C4C4A66C1A5469 /* Build configuration list for PBXNativeTarget "Frictionless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				679BF28DFDD817DF018BAE25 /* Release */,
+				C7819E6B226A7D53BAA6551B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4D44809461FBCE34AA89946 /* Project object */;
+}
