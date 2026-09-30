@@ -42,6 +42,10 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
         app.buttons["task-Reading"].tap()
         XCTAssertEqual(app.buttons["task-Reading"].value as? String, "Recording")
+        XCTAssertEqual(app.buttons.matching(identifier: "task-Reading").count, 1)
+        XCTAssertLessThan(app.buttons["task-Reading"].frame.minY, app.buttons["task-Writing"].frame.minY)
+        XCTAssertGreaterThan(app.buttons["Stop tracking"].frame.minY, app.buttons["task-Writing"].frame.maxY)
+        XCTAssertLessThan(app.buttons["Stop tracking"].frame.maxY, app.buttons["Today"].frame.minY)
         capture(app, "Task picker recording")
         app.terminate()
         app.launchArguments = ["--ui-testing"]
@@ -59,6 +63,31 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Undo"].waitForExistence(timeout: 5))
         app.buttons["Undo"].tap()
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
+    }
+
+    func testTaskColorEditing() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--ui-testing", "--reset-ui-storage"]
+        app.launch()
+        XCTAssertTrue(app.buttons["Add task"].waitForExistence(timeout: 10))
+        addTask(app, name: "Writing")
+        app.buttons["Manage tasks"].tap()
+        app.buttons["managed-task-Writing"].tap()
+        XCTAssertTrue(app.navigationBars["Edit task"].waitForExistence(timeout: 5))
+        app.descendants(matching: .any)["task-color"].firstMatch.tap()
+        app.staticTexts["Sand"].tap()
+        app.navigationBars["Edit task"].buttons["Save"].tap()
+        XCTAssertTrue(app.buttons["managed-task-Writing"].waitForExistence(timeout: 5))
+        app.buttons["managed-task-Writing"].tap()
+        let color = app.buttons["task-color"]
+        XCTAssertTrue(color.waitForExistence(timeout: 5))
+        XCTAssertEqual(color.value as? String, "Sand")
+        capture(app, "Saved task color")
+        app.navigationBars["Edit task"].buttons["Cancel"].tap()
+        app.navigationBars["Manage tasks"].buttons["Done"].tap()
+        app.buttons["task-Writing"].tap()
+        XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
+        capture(app, "Colored active task")
     }
 
     func testAuditWithRecordedHistory() {

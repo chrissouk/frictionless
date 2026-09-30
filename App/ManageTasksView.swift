@@ -79,9 +79,13 @@ struct TaskEditorView: View {
                 if let validation { Text(validation).foregroundStyle(.red) }
                 Picker("Color", selection: $color) {
                     ForEach(0..<6) { index in
-                        Text(colorNames[index]).tag(index)
+                        Label {
+                            Text(colorNames[index])
+                        } icon: {
+                            Circle().fill(Theme.color(index)).frame(width: 16, height: 16)
+                        }.tag(index)
                     }
-                }
+                }.pickerStyle(.navigationLink).accessibilityIdentifier("task-color")
                 Button("Archive task", role: .destructive) {
                     Task {
                         if await model.perform({ try await model.store.archive(task.id) }) { dismiss() }

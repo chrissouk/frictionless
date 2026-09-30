@@ -15,6 +15,13 @@ struct TasksView: View {
                         Text("What’s next?").font(.largeTitle.weight(.bold))
                             .padding(.top, 16).padding(.bottom, 24)
                             .accessibilityAddTraits(.isHeader)
+                        if let interval = model.state.active,
+                           let task = model.state.tasks.first(where: { $0.id == interval.taskID }) {
+                            Text("Now").font(.subheadline).foregroundStyle(.secondary)
+                                .accessibilityAddTraits(.isHeader).padding(.bottom, 8)
+                            activeRow(task, start: interval.start)
+                                .padding(.bottom, 28)
+                        }
                         if model.state.visibleTasks.isEmpty {
                             VStack(alignment: .leading, spacing: 20) {
                                 Text("Add a task, then tap it to record.")
@@ -24,14 +31,9 @@ struct TasksView: View {
                                     .frame(minHeight: 44)
                             }.padding(.vertical, 48)
                         }
-                        ForEach(model.state.visibleTasks) { task in
+                        ForEach(model.state.visibleTasks.filter { $0.id != model.state.active?.taskID }) { task in
                             taskRow(task)
                             Divider()
-                        }
-                        if model.state.active != nil {
-                            Button("Stop tracking", systemImage: "stop.circle") {
-                                Task { await model.select(nil) }
-                            }.frame(minHeight: 56).padding(.top, 20)
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 24)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,6 +43,11 @@ struct TasksView: View {
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 VStack(spacing: 0) {
                     undoBar
+                    if model.state.active != nil {
+                        Button("Stop tracking", systemImage: "stop.circle") {
+                            Task { await model.select(nil) }
+                        }.font(.subheadline).foregroundStyle(.secondary).frame(minHeight: 44)
+                    }
                     bottomLayout {
                         Button("Today", systemImage: "calendar") { audit = true }
                             .frame(minHeight: 44)
@@ -67,7 +74,6 @@ struct TasksView: View {
     }
 
     private func taskRow(_ task: TrackedTask) -> some View {
-        let selected = model.state.active?.taskID == task.id
         return Button {
             Task { await model.select(task.id) }
         } label: {
@@ -75,17 +81,28 @@ struct TasksView: View {
                 Circle().fill(Theme.color(task.color)).frame(width: 10, height: 10)
                 Text(task.name).font(.title2.weight(.medium)).multilineTextAlignment(.leading)
                 Spacer(minLength: 8)
-                if selected { Image(systemName: "checkmark.circle.fill").foregroundStyle(Theme.mint) }
             }.padding(.vertical, 25).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
                 .contentShape(Rectangle())
         }.buttonStyle(.plain)
             .accessibilityIdentifier("task-\(task.name)")
-            .accessibilityValue(selectedDescription(selected))
+            .accessibilityValue("Tap to record")
     }
 
-    private func selectedDescription(_ selected: Bool) -> String {
-        if selected { return "Recording" }
-        return "Tap to record"
+    private func activeRow(_ task: TrackedTask, start: Date) -> some View {
+        Button {
+            Task { await model.select(task.id) }
+        } label: {
+            bottomLayout {
+                Text(task.name).font(.title2.weight(.medium)).multilineTextAlignment(.leading)
+                if !textSize.isAccessibilitySize { Spacer(minLength: 8) }
+                Text(start, style: .timer).font(.title3).monospacedDigit()
+                    .multilineTextAlignment(.trailing)
+            }.padding(20).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
+                .background(Theme.color(task.color).opacity(0.3), in: RoundedRectangle(cornerRadius: 16))
+                .contentShape(Rectangle())
+        }.buttonStyle(.plain)
+            .accessibilityIdentifier("task-\(task.name)")
+            .accessibilityValue("Recording")
     }
 
     @ViewBuilder private var undoBar: some View {
