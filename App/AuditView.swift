@@ -40,7 +40,9 @@ struct AuditView: View {
                         Text("Timeline").font(.title2.weight(.medium)).padding(.top, 8)
                         ForEach(audit.segments) { segment in
                             if let interval = segment.interval {
+                                let taskName = model.state.tasks.first { $0.id == interval.taskID }?.name ?? "Task"
                                 Button { editing = interval } label: { segmentRow(segment) }
+                                    .accessibilityIdentifier("interval-\(taskName)")
                                     .buttonStyle(.plain).accessibilityHint("Edit task or recording times")
                             } else { segmentRow(segment) }
                             Divider()

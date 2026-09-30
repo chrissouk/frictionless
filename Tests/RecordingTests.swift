@@ -19,6 +19,11 @@ final class RecordingTests: XCTestCase {
         return try await store.saveTask(name: "Rest").visibleTasks
     }
 
+    func testProductionAppGroupStorageCanOpen() async throws {
+        let state = try await RecordingStore.shared.snapshot()
+        XCTAssertLessThanOrEqual(state.intervals.filter { $0.end == nil }.count, 1)
+    }
+
     func testStartSwitchSameTaskStopAndRelaunch() async throws {
         let tasks = try await tasks()
         var state = try await store.switchTask(tasks[0].id, now: epoch)

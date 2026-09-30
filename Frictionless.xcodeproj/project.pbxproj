@@ -7,64 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1DA309CBF5395E229BEA9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
-		1223A01DE802BF0F0B7273E8 /* RecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929F088BA1D92B5D5A1300C /* RecordingTests.swift */; };
-		1942E32CA4D88C5183519FEB /* IntervalEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F48C3B0CD22FECE9130C1 /* IntervalEditorView.swift */; };
-		28C45DA5913D3166D96290F7 /* FrictionlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD93EEE0256138F857C2CB /* FrictionlessApp.swift */; };
-		28F2A9E2D3AD5E986B4901C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D16623831BB9420F63406 /* Models.swift */; };
-		29CD525D39970FCA09797FC7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED45196CF356CE29141AF4 /* Theme.swift */; };
-		34E03561669253696E581853 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90589EBA84A50922258E7FA2 /* LiveRecording.swift */; };
-		38006F98E23D2D8564A47C84 /* FrictionlessLiveActivity.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3AF5DAEB2E3AF0D9B6394133 /* AuditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3FDDA211EFC7C8831A4F3 /* AuditView.swift */; };
-		437ECA997269AA004955FC0F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D16623831BB9420F63406 /* Models.swift */; };
-		580F0151FBF859AE8412856B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
-		5A23EA1948D80DC2C52FA781 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D224DB40398A877097217799 /* libsqlite3.tbd */; };
-		6540F6EAB935EFD42668B003 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED45196CF356CE29141AF4 /* Theme.swift */; };
-		6FF9AB105AB70E2ABB56671A /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */; };
-		730953C71AE8D424FFDD966B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
-		750D96A3D546DC98E9188D4F /* FrictionlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3FD43B95CFD7A2F4885B09 /* FrictionlessUITests.swift */; };
-		7A2E1A0574A30A3C333386E2 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642866DA92DF85E031F3C7DA /* AppModel.swift */; };
-		99970CC9559ED012F370C3A1 /* ManageTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E501006295B287C4E9E08 /* ManageTasksView.swift */; };
-		B4BB82211F8FCCE98D80A09D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */; };
-		B5C7FFB69F952B52ED52E484 /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */; };
-		DFD13D21A7EFDF35F294838E /* FrictionlessActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F256B9881E7A4379F221D7B /* FrictionlessActivity.swift */; };
-		E2FDB7BCDB1A0D8C9E68C0B9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E47B4D57E4244D88A0D816 /* libsqlite3.tbd */; };
-		F38C236E3B4CE87CBC6B4EA2 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90589EBA84A50922258E7FA2 /* LiveRecording.swift */; };
-		FB1993104D509752B80AEB0C /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AF5541CAFA68E04EDF251 /* TasksView.swift */; };
+		031143CF8E82C9660B17A43F /* FrictionlessActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */; };
+		0562BB03DA20EE49DA9CF95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */; };
+		0AE9447A9A029BB6EFEE4CF5 /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */; };
+		18DB8902DF6FC0C7B46669CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433A39A1B07FF6E5374869CB /* Foundation.framework */; };
+		3046EE0D7805C05894AF45C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A3A01EE57E55037E14943C /* libsqlite3.tbd */; };
+		30DF7638B459E1F80C70519F /* ManageTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8113F8AEF66621F669C23 /* ManageTasksView.swift */; };
+		379B650CDF4457F7A3B19129 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13413A5DB1D849A8066553 /* AppModel.swift */; };
+		4D676FEFE15EFD622A2662FC /* RecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCCB32432EDF461FB0D873 /* RecordingTests.swift */; };
+		4EFC212333015D0E1C31A3E9 /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */; };
+		5354C201E7675AAE224CC4C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433A39A1B07FF6E5374869CB /* Foundation.framework */; };
+		5A48A48B3D0BB42B878FD174 /* AuditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC557E69E33F1D6121A4B100 /* AuditView.swift */; };
+		5C3996D404A00EC925278F26 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68912921A27E44587A46B7C /* Models.swift */; };
+		60481D35FB30E539088D3EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433A39A1B07FF6E5374869CB /* Foundation.framework */; };
+		66CAEA12CC528DFEA6CA05A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CA8EECD0E2A5C545CF9A70 /* Assets.xcassets */; };
+		7417347DEC83BF4F1DC0C4F6 /* IntervalEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2969EAFC66705F9A60A675A /* IntervalEditorView.swift */; };
+		79E22E76675EEF5D05F8C237 /* FrictionlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8EAFB8E741A78B4BF2F85 /* FrictionlessUITests.swift */; };
+		8227E78937AACBF204C56484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433A39A1B07FF6E5374869CB /* Foundation.framework */; };
+		8A45E338C429E8450C1D22D6 /* FrictionlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */; };
+		AA3E5968C840B20F39A3D505 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68912921A27E44587A46B7C /* Models.swift */; };
+		ADE281119143C384CFFA94A1 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339A4B4A1C277E075534326 /* LiveRecording.swift */; };
+		B9E551E448355D524D5C8F83 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D93180F4E89D587364355 /* Theme.swift */; };
+		BF4589B4C6153D39EB368E75 /* FrictionlessLiveActivity.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E2BC3EED3111F86CF1FDBF35 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339A4B4A1C277E075534326 /* LiveRecording.swift */; };
+		E602408AEFEB5A182C0B74D4 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A015D5FF237B01A4A2D3F5 /* TasksView.swift */; };
+		ED2B59A9A79276632B76A9DB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D93180F4E89D587364355 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		34EA133E5151BB121630AB3D /* PBXContainerItemProxy */ = {
+		00FA60D0E5F134465B26C594 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D4D44809461FBCE34AA89946 /* Project object */;
+			containerPortal = D6198551BFB749DFA9B4ED22 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 517FD0FC2B3AFEFBDC307C69;
+			remoteGlobalIDString = 8D61E39FE7A16CCCDE661E93;
 			remoteInfo = Frictionless;
 		};
-		AC404E34A32A091E38EE9A7C /* PBXContainerItemProxy */ = {
+		324A72C84D1CB4073F74FE76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D4D44809461FBCE34AA89946 /* Project object */;
+			containerPortal = D6198551BFB749DFA9B4ED22 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 81ADC01FBB235BE0867AE9A6;
+			remoteGlobalIDString = 8D61E39FE7A16CCCDE661E93;
+			remoteInfo = Frictionless;
+		};
+		653B17C7AADD20DDBBFE0EDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6198551BFB749DFA9B4ED22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 949C30C9A5EC2F6B5D032ED1;
 			remoteInfo = FrictionlessLiveActivity;
-		};
-		CF4052FDD423C200867403CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4D44809461FBCE34AA89946 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 517FD0FC2B3AFEFBDC307C69;
-			remoteInfo = Frictionless;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		54A7B4C02131FABB84173B83 /* Embed App Extensions */ = {
+		5C907A7C95839762B7F4716D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				38006F98E23D2D8564A47C84 /* FrictionlessLiveActivity.appex in Embed App Extensions */,
+				BF4589B4C6153D39EB368E75 /* FrictionlessLiveActivity.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,183 +73,167 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		107F48C3B0CD22FECE9130C1 /* IntervalEditorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntervalEditorView.swift; path = App/IntervalEditorView.swift; sourceTree = "<group>"; };
-		16FD93EEE0256138F857C2CB /* FrictionlessApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessApp.swift; path = App/FrictionlessApp.swift; sourceTree = "<group>"; };
-		21BFD3C763EB9274DD9416FD /* FrictionlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FrictionlessLiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		280AF5541CAFA68E04EDF251 /* TasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TasksView.swift; path = App/TasksView.swift; sourceTree = "<group>"; };
-		2C05347AAC4874637B630AE0 /* Frictionless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frictionless.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F256B9881E7A4379F221D7B /* FrictionlessActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessActivity.swift; path = LiveActivity/FrictionlessActivity.swift; sourceTree = "<group>"; };
-		642866DA92DF85E031F3C7DA /* AppModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModel.swift; path = App/AppModel.swift; sourceTree = "<group>"; };
-		6F5D16623831BB9420F63406 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Models.swift; path = Shared/Models.swift; sourceTree = "<group>"; };
-		772E501006295B287C4E9E08 /* ManageTasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManageTasksView.swift; path = App/ManageTasksView.swift; sourceTree = "<group>"; };
-		80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Signing.xcconfig; path = Configuration/Signing.xcconfig; sourceTree = "<group>"; };
-		84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingStore.swift; path = Shared/RecordingStore.swift; sourceTree = "<group>"; };
-		90589EBA84A50922258E7FA2 /* LiveRecording.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveRecording.swift; path = Shared/LiveRecording.swift; sourceTree = "<group>"; };
-		9B3FD43B95CFD7A2F4885B09 /* FrictionlessUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessUITests.swift; path = UITests/FrictionlessUITests.swift; sourceTree = "<group>"; };
-		A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A929F088BA1D92B5D5A1300C /* RecordingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingTests.swift; path = Tests/RecordingTests.swift; sourceTree = "<group>"; };
-		B97F02C09AD31F0C4E94DDFC /* FrictionlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7E3FDDA211EFC7C8831A4F3 /* AuditView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuditView.swift; path = App/AuditView.swift; sourceTree = "<group>"; };
-		C7E47B4D57E4244D88A0D816 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		D224DB40398A877097217799 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		D6ED45196CF356CE29141AF4 /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Shared/Theme.swift; sourceTree = "<group>"; };
+		0141C484CE987FFBEC23B84B /* FrictionlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		024917777F6546DAA4FF08DA /* FrictionlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0339A4B4A1C277E075534326 /* LiveRecording.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveRecording.swift; path = Shared/LiveRecording.swift; sourceTree = "<group>"; };
+		07A3A01EE57E55037E14943C /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		07E8EAFB8E741A78B4BF2F85 /* FrictionlessUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessUITests.swift; path = UITests/FrictionlessUITests.swift; sourceTree = "<group>"; };
+		28A015D5FF237B01A4A2D3F5 /* TasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TasksView.swift; path = App/TasksView.swift; sourceTree = "<group>"; };
+		2A13413A5DB1D849A8066553 /* AppModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModel.swift; path = App/AppModel.swift; sourceTree = "<group>"; };
+		433A39A1B07FF6E5374869CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5B0D93180F4E89D587364355 /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Shared/Theme.swift; sourceTree = "<group>"; };
+		6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingStore.swift; path = Shared/RecordingStore.swift; sourceTree = "<group>"; };
+		9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FrictionlessLiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessActivity.swift; path = LiveActivity/FrictionlessActivity.swift; sourceTree = "<group>"; };
+		B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessApp.swift; path = App/FrictionlessApp.swift; sourceTree = "<group>"; };
+		BEE8113F8AEF66621F669C23 /* ManageTasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManageTasksView.swift; path = App/ManageTasksView.swift; sourceTree = "<group>"; };
+		C68912921A27E44587A46B7C /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Models.swift; path = Shared/Models.swift; sourceTree = "<group>"; };
+		CAE91F7798503288CDA1177A /* Signing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Signing.xcconfig; path = Configuration/Signing.xcconfig; sourceTree = "<group>"; };
+		D2969EAFC66705F9A60A675A /* IntervalEditorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntervalEditorView.swift; path = App/IntervalEditorView.swift; sourceTree = "<group>"; };
+		D4CA8EECD0E2A5C545CF9A70 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Assets.xcassets; sourceTree = "<group>"; };
+		DC557E69E33F1D6121A4B100 /* AuditView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuditView.swift; path = App/AuditView.swift; sourceTree = "<group>"; };
+		F4DCCB32432EDF461FB0D873 /* RecordingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingTests.swift; path = Tests/RecordingTests.swift; sourceTree = "<group>"; };
+		FCAE727694EDF1F5BD09D75F /* Frictionless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frictionless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01386F519CF4ADD95EBD67A1 /* Frameworks */ = {
+		54A547BB0D50988E44F335AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4BB82211F8FCCE98D80A09D /* Foundation.framework in Frameworks */,
-				5A23EA1948D80DC2C52FA781 /* libsqlite3.tbd in Frameworks */,
+				60481D35FB30E539088D3EC1 /* Foundation.framework in Frameworks */,
+				3046EE0D7805C05894AF45C7 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2635CC509765DB20317A11F8 /* Frameworks */ = {
+		5C39BE9738D411F46AA0168F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730953C71AE8D424FFDD966B /* Foundation.framework in Frameworks */,
-				E2FDB7BCDB1A0D8C9E68C0B9 /* libsqlite3.tbd in Frameworks */,
+				8227E78937AACBF204C56484 /* Foundation.framework in Frameworks */,
+				0562BB03DA20EE49DA9CF95F /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27B53B469DC288A5ACEFDAD0 /* Frameworks */ = {
+		B1A55809CAAD28F4EB083B4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1DA309CBF5395E229BEA9B /* Foundation.framework in Frameworks */,
+				18DB8902DF6FC0C7B46669CA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD1D37E6F6460EB5878B9A31 /* Frameworks */ = {
+		E262B501AF15F6B526E4D8F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				580F0151FBF859AE8412856B /* Foundation.framework in Frameworks */,
+				5354C201E7675AAE224CC4C9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F8D3051EAF3E203F883DFE1 /* Products */ = {
+		1AE2CFEDA1D6433B14DEF610 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C05347AAC4874637B630AE0 /* Frictionless.app */,
-				265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */,
-				B97F02C09AD31F0C4E94DDFC /* FrictionlessTests.xctest */,
-				21BFD3C763EB9274DD9416FD /* FrictionlessUITests.xctest */,
+				FCAE727694EDF1F5BD09D75F /* Frictionless.app */,
+				A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */,
+				0141C484CE987FFBEC23B84B /* FrictionlessTests.xctest */,
+				024917777F6546DAA4FF08DA /* FrictionlessUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6970C591EDE363406692D4F3 /* iOS */ = {
+		5239D297EDDD9E7E1CFA060F = {
 			isa = PBXGroup;
 			children = (
-				A29D5AB3D6BB28A5E2F9DF69 /* Foundation.framework */,
+				1AE2CFEDA1D6433B14DEF610 /* Products */,
+				8B2BB81FC85B565C9AEEDFD0 /* Frameworks */,
+				6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */,
+				C68912921A27E44587A46B7C /* Models.swift */,
+				5B0D93180F4E89D587364355 /* Theme.swift */,
+				0339A4B4A1C277E075534326 /* LiveRecording.swift */,
+				DC557E69E33F1D6121A4B100 /* AuditView.swift */,
+				D2969EAFC66705F9A60A675A /* IntervalEditorView.swift */,
+				2A13413A5DB1D849A8066553 /* AppModel.swift */,
+				BEE8113F8AEF66621F669C23 /* ManageTasksView.swift */,
+				B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */,
+				28A015D5FF237B01A4A2D3F5 /* TasksView.swift */,
+				AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */,
+				F4DCCB32432EDF461FB0D873 /* RecordingTests.swift */,
+				07E8EAFB8E741A78B4BF2F85 /* FrictionlessUITests.swift */,
+				D4CA8EECD0E2A5C545CF9A70 /* Assets.xcassets */,
+				CAE91F7798503288CDA1177A /* Signing.xcconfig */,
 			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
-		C611DF3787F7784E9802A10A /* Frameworks */ = {
+		8B2BB81FC85B565C9AEEDFD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6970C591EDE363406692D4F3 /* iOS */,
-				D224DB40398A877097217799 /* libsqlite3.tbd */,
-				C7E47B4D57E4244D88A0D816 /* libsqlite3.tbd */,
+				D36DF1B44E77AD2C65CB3FF6 /* iOS */,
+				9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */,
+				07A3A01EE57E55037E14943C /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D089F2AC49A8F90EAE87610F = {
+		D36DF1B44E77AD2C65CB3FF6 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				3F8D3051EAF3E203F883DFE1 /* Products */,
-				C611DF3787F7784E9802A10A /* Frameworks */,
-				84ACEFCAF7CA3D9834B2B5B0 /* RecordingStore.swift */,
-				6F5D16623831BB9420F63406 /* Models.swift */,
-				D6ED45196CF356CE29141AF4 /* Theme.swift */,
-				90589EBA84A50922258E7FA2 /* LiveRecording.swift */,
-				C7E3FDDA211EFC7C8831A4F3 /* AuditView.swift */,
-				107F48C3B0CD22FECE9130C1 /* IntervalEditorView.swift */,
-				642866DA92DF85E031F3C7DA /* AppModel.swift */,
-				772E501006295B287C4E9E08 /* ManageTasksView.swift */,
-				16FD93EEE0256138F857C2CB /* FrictionlessApp.swift */,
-				280AF5541CAFA68E04EDF251 /* TasksView.swift */,
-				4F256B9881E7A4379F221D7B /* FrictionlessActivity.swift */,
-				A929F088BA1D92B5D5A1300C /* RecordingTests.swift */,
-				9B3FD43B95CFD7A2F4885B09 /* FrictionlessUITests.swift */,
-				80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */,
+				433A39A1B07FF6E5374869CB /* Foundation.framework */,
 			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1948EA2B74FA745BA0F68BA5 /* FrictionlessTests */ = {
+		11BE93C1BC4B8A655B854D4C /* FrictionlessUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EB6EF8C353FD42634220654 /* Build configuration list for PBXNativeTarget "FrictionlessTests" */;
+			buildConfigurationList = E8FA3CEF5D79D92043A8B980 /* Build configuration list for PBXNativeTarget "FrictionlessUITests" */;
 			buildPhases = (
-				41D4879AFA6AA08EBF7DBC94 /* Sources */,
-				BD1D37E6F6460EB5878B9A31 /* Frameworks */,
-				62B109B3637EEE05233AC717 /* Resources */,
+				05E61AB4C34283D41F6F41CB /* Sources */,
+				E262B501AF15F6B526E4D8F7 /* Frameworks */,
+				E8576DCE4E360CD586BB57EB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				872267041A2EE52F19B2C033 /* PBXTargetDependency */,
-			);
-			name = FrictionlessTests;
-			productName = FrictionlessTests;
-			productReference = B97F02C09AD31F0C4E94DDFC /* FrictionlessTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3D769C3E2B21DFB82436D94F /* FrictionlessUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 118F4250B0E50F8674DEF1E6 /* Build configuration list for PBXNativeTarget "FrictionlessUITests" */;
-			buildPhases = (
-				F1123B1B844479C7C590D25C /* Sources */,
-				27B53B469DC288A5ACEFDAD0 /* Frameworks */,
-				A9944B60789018F07BA77A73 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8A6C2BEADFD24139E19A86CE /* PBXTargetDependency */,
+				9C92EEE4A7524FF97E5F5C21 /* PBXTargetDependency */,
 			);
 			name = FrictionlessUITests;
 			productName = FrictionlessUITests;
-			productReference = 21BFD3C763EB9274DD9416FD /* FrictionlessUITests.xctest */;
+			productReference = 024917777F6546DAA4FF08DA /* FrictionlessUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		517FD0FC2B3AFEFBDC307C69 /* Frictionless */ = {
+		8D61E39FE7A16CCCDE661E93 /* Frictionless */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDD9234124C4C4A66C1A5469 /* Build configuration list for PBXNativeTarget "Frictionless" */;
+			buildConfigurationList = 32EB37DD3EA81C2FD05DF8B8 /* Build configuration list for PBXNativeTarget "Frictionless" */;
 			buildPhases = (
-				9061A21DCD81A5DA89DABCB8 /* Sources */,
-				01386F519CF4ADD95EBD67A1 /* Frameworks */,
-				059EEEC454107E60D45B5E67 /* Resources */,
-				54A7B4C02131FABB84173B83 /* Embed App Extensions */,
+				4A0E2458A609B12858E19B0B /* Sources */,
+				5C39BE9738D411F46AA0168F /* Frameworks */,
+				0C2EAEB1450D64CD841E2F7F /* Resources */,
+				5C907A7C95839762B7F4716D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				651E164949E1EB914957D636 /* PBXTargetDependency */,
+				3AEFC781F9A9EDF1AA580BDD /* PBXTargetDependency */,
 			);
 			name = Frictionless;
 			productName = Frictionless;
-			productReference = 2C05347AAC4874637B630AE0 /* Frictionless.app */;
+			productReference = FCAE727694EDF1F5BD09D75F /* Frictionless.app */;
 			productType = "com.apple.product-type.application";
 		};
-		81ADC01FBB235BE0867AE9A6 /* FrictionlessLiveActivity */ = {
+		949C30C9A5EC2F6B5D032ED1 /* FrictionlessLiveActivity */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8E57882B4D7DF7EAF56547B /* Build configuration list for PBXNativeTarget "FrictionlessLiveActivity" */;
+			buildConfigurationList = F027758E0751EB58FC7A4BCF /* Build configuration list for PBXNativeTarget "FrictionlessLiveActivity" */;
 			buildPhases = (
-				00CB5881BB309163F9FB10C7 /* Sources */,
-				2635CC509765DB20317A11F8 /* Frameworks */,
-				1218C9E9E90367F067B0F2B7 /* Resources */,
+				7FFF351DA79971F8A157DFE0 /* Sources */,
+				54A547BB0D50988E44F335AE /* Frameworks */,
+				42028EAE06503CDF74234BDF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -256,19 +241,37 @@
 			);
 			name = FrictionlessLiveActivity;
 			productName = FrictionlessLiveActivity;
-			productReference = 265658943627A6FD04A1EA69 /* FrictionlessLiveActivity.appex */;
+			productReference = A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		B7BFC5A709955FB19CED3603 /* FrictionlessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16848529CE30A9EAFD61DC8E /* Build configuration list for PBXNativeTarget "FrictionlessTests" */;
+			buildPhases = (
+				B39BD72AB653A4BFAC9E4A7D /* Sources */,
+				B1A55809CAAD28F4EB083B4E /* Frameworks */,
+				1F02211AEE24EF673DB0A7B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A9DB4B7BFAB352A1A703E94 /* PBXTargetDependency */,
+			);
+			name = FrictionlessTests;
+			productName = FrictionlessTests;
+			productReference = 0141C484CE987FFBEC23B84B /* FrictionlessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D4D44809461FBCE34AA89946 /* Project object */ = {
+		D6198551BFB749DFA9B4ED22 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 			};
-			buildConfigurationList = 0FC396A4618AD6FA322E592B /* Build configuration list for PBXProject "Frictionless" */;
+			buildConfigurationList = 1527E9DC8989EAF689B11DFB /* Build configuration list for PBXProject "Frictionless" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -276,44 +279,45 @@
 				en,
 				Base,
 			);
-			mainGroup = D089F2AC49A8F90EAE87610F;
+			mainGroup = 5239D297EDDD9E7E1CFA060F;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 3F8D3051EAF3E203F883DFE1 /* Products */;
+			productRefGroup = 1AE2CFEDA1D6433B14DEF610 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				517FD0FC2B3AFEFBDC307C69 /* Frictionless */,
-				81ADC01FBB235BE0867AE9A6 /* FrictionlessLiveActivity */,
-				1948EA2B74FA745BA0F68BA5 /* FrictionlessTests */,
-				3D769C3E2B21DFB82436D94F /* FrictionlessUITests */,
+				8D61E39FE7A16CCCDE661E93 /* Frictionless */,
+				949C30C9A5EC2F6B5D032ED1 /* FrictionlessLiveActivity */,
+				B7BFC5A709955FB19CED3603 /* FrictionlessTests */,
+				11BE93C1BC4B8A655B854D4C /* FrictionlessUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		059EEEC454107E60D45B5E67 /* Resources */ = {
+		0C2EAEB1450D64CD841E2F7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CAEA12CC528DFEA6CA05A1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F02211AEE24EF673DB0A7B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1218C9E9E90367F067B0F2B7 /* Resources */ = {
+		42028EAE06503CDF74234BDF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62B109B3637EEE05233AC717 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9944B60789018F07BA77A73 /* Resources */ = {
+		E8576DCE4E360CD586BB57EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,78 +327,105 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00CB5881BB309163F9FB10C7 /* Sources */ = {
+		05E61AB4C34283D41F6F41CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C7FFB69F952B52ED52E484 /* RecordingStore.swift in Sources */,
-				437ECA997269AA004955FC0F /* Models.swift in Sources */,
-				29CD525D39970FCA09797FC7 /* Theme.swift in Sources */,
-				F38C236E3B4CE87CBC6B4EA2 /* LiveRecording.swift in Sources */,
-				DFD13D21A7EFDF35F294838E /* FrictionlessActivity.swift in Sources */,
+				79E22E76675EEF5D05F8C237 /* FrictionlessUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		41D4879AFA6AA08EBF7DBC94 /* Sources */ = {
+		4A0E2458A609B12858E19B0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1223A01DE802BF0F0B7273E8 /* RecordingTests.swift in Sources */,
+				4EFC212333015D0E1C31A3E9 /* RecordingStore.swift in Sources */,
+				5C3996D404A00EC925278F26 /* Models.swift in Sources */,
+				B9E551E448355D524D5C8F83 /* Theme.swift in Sources */,
+				E2BC3EED3111F86CF1FDBF35 /* LiveRecording.swift in Sources */,
+				5A48A48B3D0BB42B878FD174 /* AuditView.swift in Sources */,
+				7417347DEC83BF4F1DC0C4F6 /* IntervalEditorView.swift in Sources */,
+				379B650CDF4457F7A3B19129 /* AppModel.swift in Sources */,
+				30DF7638B459E1F80C70519F /* ManageTasksView.swift in Sources */,
+				8A45E338C429E8450C1D22D6 /* FrictionlessApp.swift in Sources */,
+				E602408AEFEB5A182C0B74D4 /* TasksView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9061A21DCD81A5DA89DABCB8 /* Sources */ = {
+		7FFF351DA79971F8A157DFE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FF9AB105AB70E2ABB56671A /* RecordingStore.swift in Sources */,
-				28F2A9E2D3AD5E986B4901C5 /* Models.swift in Sources */,
-				6540F6EAB935EFD42668B003 /* Theme.swift in Sources */,
-				34E03561669253696E581853 /* LiveRecording.swift in Sources */,
-				3AF5DAEB2E3AF0D9B6394133 /* AuditView.swift in Sources */,
-				1942E32CA4D88C5183519FEB /* IntervalEditorView.swift in Sources */,
-				7A2E1A0574A30A3C333386E2 /* AppModel.swift in Sources */,
-				99970CC9559ED012F370C3A1 /* ManageTasksView.swift in Sources */,
-				28C45DA5913D3166D96290F7 /* FrictionlessApp.swift in Sources */,
-				FB1993104D509752B80AEB0C /* TasksView.swift in Sources */,
+				0AE9447A9A029BB6EFEE4CF5 /* RecordingStore.swift in Sources */,
+				AA3E5968C840B20F39A3D505 /* Models.swift in Sources */,
+				ED2B59A9A79276632B76A9DB /* Theme.swift in Sources */,
+				ADE281119143C384CFFA94A1 /* LiveRecording.swift in Sources */,
+				031143CF8E82C9660B17A43F /* FrictionlessActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1123B1B844479C7C590D25C /* Sources */ = {
+		B39BD72AB653A4BFAC9E4A7D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				750D96A3D546DC98E9188D4F /* FrictionlessUITests.swift in Sources */,
+				4D676FEFE15EFD622A2662FC /* RecordingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		651E164949E1EB914957D636 /* PBXTargetDependency */ = {
+		3AEFC781F9A9EDF1AA580BDD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FrictionlessLiveActivity;
-			target = 81ADC01FBB235BE0867AE9A6 /* FrictionlessLiveActivity */;
-			targetProxy = AC404E34A32A091E38EE9A7C /* PBXContainerItemProxy */;
+			target = 949C30C9A5EC2F6B5D032ED1 /* FrictionlessLiveActivity */;
+			targetProxy = 653B17C7AADD20DDBBFE0EDC /* PBXContainerItemProxy */;
 		};
-		872267041A2EE52F19B2C033 /* PBXTargetDependency */ = {
+		6A9DB4B7BFAB352A1A703E94 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Frictionless;
-			target = 517FD0FC2B3AFEFBDC307C69 /* Frictionless */;
-			targetProxy = CF4052FDD423C200867403CC /* PBXContainerItemProxy */;
+			target = 8D61E39FE7A16CCCDE661E93 /* Frictionless */;
+			targetProxy = 324A72C84D1CB4073F74FE76 /* PBXContainerItemProxy */;
 		};
-		8A6C2BEADFD24139E19A86CE /* PBXTargetDependency */ = {
+		9C92EEE4A7524FF97E5F5C21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Frictionless;
-			target = 517FD0FC2B3AFEFBDC307C69 /* Frictionless */;
-			targetProxy = 34EA133E5151BB121630AB3D /* PBXContainerItemProxy */;
+			target = 8D61E39FE7A16CCCDE661E93 /* Frictionless */;
+			targetProxy = 00FA60D0E5F134465B26C594 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04C40B1C7C694101C77486DC /* Release */ = {
+		20D41BFFD80824CDA823E2C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		257D5550968DB3A76AD90C46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -412,7 +443,147 @@
 			};
 			name = Release;
 		};
-		2A1F9C9C61CBD2E54F84D9C0 /* Debug */ = {
+		5A81C86A3D605B215452B5C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessLiveActivity";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6E9DBF6DBEADF9ED87EB7B47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessLiveActivity";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A3CE57C0BAEB997AA147B3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessTests";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frictionless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frictionless";
+			};
+			name = Debug;
+		};
+		BA6EE40F224690CDDA25BC60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessTests";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frictionless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frictionless";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C51331F0B15043E64FA1FADF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DA73BFB3AFF0B6DD24F81E7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -473,82 +644,9 @@
 			};
 			name = Debug;
 		};
-		679BF28DFDD817DF018BAE25 /* Release */ = {
+		DF3DB56249610E58D7C93247 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Configuration/App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
-				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
-				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6A9409A4B8878D45AE18BB97 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
-				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessLiveActivity";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		8044C1F9F2118F23141AB32C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
-				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessLiveActivity";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9058DE80D3A5999FB9646B10 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -565,30 +663,9 @@
 			};
 			name = Debug;
 		};
-		A268BC22325C96F367F3C7AC /* Release */ = {
+		F25421EE6A74A5019C626F53 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessTests";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frictionless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frictionless";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		C7819E6B226A7D53BAA6551B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
+			baseConfigurationReference = CAE91F7798503288CDA1177A /* Signing.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -610,132 +687,59 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		CE6E2AC79EC7BDBBB8F5347B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		EF61418A9EA52F7DF809E11B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A6FCED672BAAAAAAF43E3E /* Signing.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).FrictionlessTests";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frictionless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frictionless";
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0FC396A4618AD6FA322E592B /* Build configuration list for PBXProject "Frictionless" */ = {
+		1527E9DC8989EAF689B11DFB /* Build configuration list for PBXProject "Frictionless" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A1F9C9C61CBD2E54F84D9C0 /* Debug */,
-				CE6E2AC79EC7BDBBB8F5347B /* Release */,
+				DA73BFB3AFF0B6DD24F81E7D /* Debug */,
+				C51331F0B15043E64FA1FADF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		118F4250B0E50F8674DEF1E6 /* Build configuration list for PBXNativeTarget "FrictionlessUITests" */ = {
+		16848529CE30A9EAFD61DC8E /* Build configuration list for PBXNativeTarget "FrictionlessTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04C40B1C7C694101C77486DC /* Release */,
-				9058DE80D3A5999FB9646B10 /* Debug */,
+				BA6EE40F224690CDDA25BC60 /* Release */,
+				8A3CE57C0BAEB997AA147B3A /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EB6EF8C353FD42634220654 /* Build configuration list for PBXNativeTarget "FrictionlessTests" */ = {
+		32EB37DD3EA81C2FD05DF8B8 /* Build configuration list for PBXNativeTarget "Frictionless" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A268BC22325C96F367F3C7AC /* Release */,
-				EF61418A9EA52F7DF809E11B /* Debug */,
+				F25421EE6A74A5019C626F53 /* Release */,
+				20D41BFFD80824CDA823E2C3 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8E57882B4D7DF7EAF56547B /* Build configuration list for PBXNativeTarget "FrictionlessLiveActivity" */ = {
+		E8FA3CEF5D79D92043A8B980 /* Build configuration list for PBXNativeTarget "FrictionlessUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8044C1F9F2118F23141AB32C /* Release */,
-				6A9409A4B8878D45AE18BB97 /* Debug */,
+				257D5550968DB3A76AD90C46 /* Release */,
+				DF3DB56249610E58D7C93247 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDD9234124C4C4A66C1A5469 /* Build configuration list for PBXNativeTarget "Frictionless" */ = {
+		F027758E0751EB58FC7A4BCF /* Build configuration list for PBXNativeTarget "FrictionlessLiveActivity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				679BF28DFDD817DF018BAE25 /* Release */,
-				C7819E6B226A7D53BAA6551B /* Debug */,
+				6E9DBF6DBEADF9ED87EB7B47 /* Release */,
+				5A81C86A3D605B215452B5C9 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D4D44809461FBCE34AA89946 /* Project object */;
+	rootObject = D6198551BFB749DFA9B4ED22 /* Project object */;
 }

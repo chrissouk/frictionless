@@ -45,7 +45,7 @@ final class FrictionlessUITests: XCTestCase {
         app.buttons["Today"].tap()
         XCTAssertTrue(app.staticTexts["Timeline"].waitForExistence(timeout: 5))
         capture(app, "Daily audit")
-        app.buttons.matching(NSPredicate(format: "label CONTAINS 'Reading' AND label CONTAINS 'Recording'")).firstMatch.tap()
+        app.buttons["interval-Reading"].firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Correct interval"].waitForExistence(timeout: 5))
         app.buttons["Cancel"].tap()
         app.buttons["Done"].tap()
@@ -61,17 +61,21 @@ final class FrictionlessUITests: XCTestCase {
         app.launch()
         XCTAssertTrue(app.buttons["task-Writing"].waitForExistence(timeout: 10))
         app.buttons["Today"].tap()
+        app.buttons["Previous day"].tap()
         XCTAssertTrue(app.staticTexts["2h 0m"].waitForExistence(timeout: 5))
         capture(app, "Daily audit with history")
-        app.buttons.matching(NSPredicate(format: "label CONTAINS 'Reading' AND label CONTAINS '1h 0m'")).firstMatch.tap()
+        app.buttons["interval-Reading"].firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Correct interval"].waitForExistence(timeout: 5))
         capture(app, "Interval correction")
         app.buttons["5m"].tap()
-        app.switches["Adjust previous task’s end too"].tap()
         app.buttons["Save"].tap()
         XCTAssertTrue(app.navigationBars["Daily audit"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.staticTexts["55m"].exists)
-        XCTAssertTrue(app.staticTexts["1h 5m"].exists)
+        let closed = NSPredicate(format: "exists == false")
+        expectation(for: closed, evaluatedWith: app.navigationBars["Correct interval"])
+        waitForExpectations(timeout: 5)
+        capture(app, "Audit after correction")
+        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS '55m'")).firstMatch.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS '1h 5m'")).firstMatch.exists)
     }
 
     func testAccessibilityLargeText() {
@@ -84,5 +88,8 @@ final class FrictionlessUITests: XCTestCase {
         app.buttons["task-A longer task name for reading"].tap()
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
         capture(app, "Large text recording")
+        app.buttons["Today"].tap()
+        XCTAssertTrue(app.navigationBars["Daily audit"].waitForExistence(timeout: 5))
+        capture(app, "Large text audit")
     }
 }

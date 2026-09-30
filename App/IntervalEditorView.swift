@@ -8,7 +8,6 @@ struct IntervalEditorView: View {
     @State private var start: Date
     @State private var end: Date
     @State private var finish = false
-    @State private var moveBoundary = false
     @State private var validation: String?
 
     init(interval: RecordedInterval) {
@@ -31,12 +30,11 @@ struct IntervalEditorView: View {
                     HStack {
                         ForEach([5, 15, 30], id: \.self) { minutes in
                             Button("\(minutes)m") { start = interval.start.addingTimeInterval(Double(-minutes * 60)) }
-                                .frame(maxWidth: .infinity, minHeight: 44)
+                                .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderless)
                         }
                     }
                     if previousInterval != nil {
-                        Toggle("Adjust previous task’s end too", isOn: $moveBoundary)
-                        Text("Moves the shared switch boundary and preserves a continuous record.")
+                        Text("Changing this start also adjusts the previous task’s end.")
                             .font(.footnote).foregroundStyle(.secondary)
                     }
                 }
@@ -62,15 +60,11 @@ struct IntervalEditorView: View {
         var savedEnd: Date?
         if interval.end != nil || finish { savedEnd = end }
         do {
-            let result = try await model.store.correct(id: interval.id, taskID: taskID, start: start, end: savedEnd, previousID: boundaryID)
+            let result = try await model.store.correct(id: interval.id, taskID: taskID, start: start, end: savedEnd, previousID: previousInterval?.id)
             model.state = result
             model.presentationNotice = await LiveCoordinator.shared.reconcile()
             dismiss()
         } catch { validation = error.localizedDescription }
     }
 
-    private var boundaryID: UUID? {
-        if moveBoundary { return previousInterval?.id }
-        return nil
-    }
 }

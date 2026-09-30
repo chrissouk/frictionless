@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "517FD0FC2B3AFEFBDC307C69"
+               BlueprintIdentifier = "8D61E39FE7A16CCCDE661E93"
                BuildableName = "Frictionless.app"
                BlueprintName = "Frictionless"
                ReferencedContainer = "container:Frictionless.xcodeproj">
@@ -30,7 +30,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "517FD0FC2B3AFEFBDC307C69"
+            BlueprintIdentifier = "8D61E39FE7A16CCCDE661E93"
             BuildableName = "Frictionless.app"
             BlueprintName = "Frictionless"
             ReferencedContainer = "container:Frictionless.xcodeproj">
@@ -41,7 +41,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1948EA2B74FA745BA0F68BA5"
+               BlueprintIdentifier = "B7BFC5A709955FB19CED3603"
                BuildableName = "FrictionlessTests.xctest"
                BlueprintName = "FrictionlessTests"
                ReferencedContainer = "container:Frictionless.xcodeproj">
@@ -51,7 +51,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D769C3E2B21DFB82436D94F"
+               BlueprintIdentifier = "11BE93C1BC4B8A655B854D4C"
                BuildableName = "FrictionlessUITests.xctest"
                BlueprintName = "FrictionlessUITests"
                ReferencedContainer = "container:Frictionless.xcodeproj">
@@ -73,7 +73,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "517FD0FC2B3AFEFBDC307C69"
+            BlueprintIdentifier = "8D61E39FE7A16CCCDE661E93"
             BuildableName = "Frictionless.app"
             BlueprintName = "Frictionless"
             ReferencedContainer = "container:Frictionless.xcodeproj">
@@ -90,7 +90,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "517FD0FC2B3AFEFBDC307C69"
+            BlueprintIdentifier = "8D61E39FE7A16CCCDE661E93"
             BuildableName = "Frictionless.app"
             BlueprintName = "Frictionless"
             ReferencedContainer = "container:Frictionless.xcodeproj">

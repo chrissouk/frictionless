@@ -12,8 +12,7 @@ struct TasksView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     if model.state.visibleTasks.isEmpty {
                         VStack(alignment: .leading, spacing: 20) {
-                            Text("Make room for your day.").font(.title2.weight(.medium))
-                            Text("Add the things you spend time on. Tap one to start recording.")
+                            Text("Add a task, then tap it to record.")
                                 .foregroundStyle(.secondary)
                             Button("Add task", systemImage: "plus") { creation = true }
                                 .buttonStyle(.borderedProminent).foregroundStyle(Theme.background)

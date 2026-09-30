@@ -106,8 +106,9 @@ actor RecordingStore {
         }
     }
 
-    func switchTask(_ id: UUID?, now: Date = Date()) throws -> RecordingState {
+    func switchTask(_ id: UUID?, now requestedDate: Date? = nil) throws -> RecordingState {
         try mutate { state in
+            let now = requestedDate ?? Date()
             if let id {
                 guard state.tasks.contains(where: { $0.id == id && !$0.archived }) else {
                     throw RecordingError.invalid("This task is no longer available.")

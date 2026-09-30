@@ -22,10 +22,12 @@ struct RecordingWidget: Widget {
                 DynamicIslandExpandedRegion(.bottom) { ActivityControls(state: context.state) }
             } compactLeading: {
                 Image(systemName: "circle.fill").foregroundStyle(Theme.color(context.state.color))
+                    .accessibilityLabel("Recording \(context.state.name)")
             } compactTrailing: {
                 Text(context.state.name).font(.caption).lineLimit(1).frame(maxWidth: 70)
             } minimal: {
                 Image(systemName: "circle.fill").foregroundStyle(Theme.color(context.state.color))
+                    .accessibilityLabel("Recording \(context.state.name)")
             }.widgetURL(URL(string: "frictionless://tasks"))
                 .keylineTint(Theme.mint)
         }

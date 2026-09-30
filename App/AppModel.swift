@@ -7,21 +7,26 @@ final class AppModel: ObservableObject {
     @Published var presentationNotice: String?
     @Published var busy = false
     private var pendingOperations = 0
+    #if DEBUG
+    private var hasInstalledFixture = false
+    #endif
     let store = RecordingStore.shared
 
     func reload() async {
         do {
             var latest = try await store.snapshot()
             #if DEBUG
-            if ProcessInfo.processInfo.arguments.contains("--audit-fixture"), latest.tasks.isEmpty,
+            if !hasInstalledFixture, ProcessInfo.processInfo.arguments.contains("--audit-fixture"), latest.tasks.isEmpty,
                ProcessInfo.processInfo.arguments.contains("--ui-testing") {
+                hasInstalledFixture = true
                 latest = try await store.saveTask(name: "Writing")
                 latest = try await store.saveTask(name: "Reading")
                 let tasks = latest.visibleTasks
                 let today = Calendar.current.startOfDay(for: Date())
-                _ = try await store.switchTask(tasks[0].id, now: today.addingTimeInterval(3600))
-                _ = try await store.switchTask(tasks[1].id, now: today.addingTimeInterval(7200))
-                latest = try await store.switchTask(nil, now: today.addingTimeInterval(10800))
+                let fixtureDay = Calendar.current.date(byAdding: .day, value: -1, to: today)!
+                _ = try await store.switchTask(tasks[0].id, now: fixtureDay.addingTimeInterval(3600))
+                _ = try await store.switchTask(tasks[1].id, now: fixtureDay.addingTimeInterval(7200))
+                latest = try await store.switchTask(nil, now: fixtureDay.addingTimeInterval(10800))
             }
             #endif
             if latest.revision >= state.revision { state = latest }

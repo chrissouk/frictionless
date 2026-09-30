@@ -83,6 +83,7 @@ struct DailyAudit {
 }
 
 func durationLabel(_ seconds: TimeInterval) -> String {
+    if seconds <= 0 { return "0m" }
     let minutes = max(0, Int(seconds / 60))
     if minutes == 0 { return "<1m" }
     if minutes < 60 { return "\(minutes)m" }
