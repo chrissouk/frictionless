@@ -4,7 +4,6 @@ import SwiftUI
 final class AppModel: ObservableObject {
     @Published var state = RecordingState()
     @Published var error: String?
-    @Published var presentationNotice: String?
     @Published var busy = false
     private var pendingOperations = 0
     #if DEBUG
@@ -32,7 +31,7 @@ final class AppModel: ObservableObject {
             if latest.revision >= state.revision { state = latest }
         }
         catch { self.error = error.localizedDescription }
-        presentationNotice = await LiveCoordinator.shared.reconcile()
+        await LiveCoordinator.shared.reconcile()
     }
 
     func perform(_ operation: () async throws -> RecordingState) async -> Bool {
@@ -45,7 +44,7 @@ final class AppModel: ObservableObject {
         do {
             let latest = try await operation()
             if latest.revision >= state.revision { state = latest }
-            presentationNotice = await LiveCoordinator.shared.reconcile()
+            await LiveCoordinator.shared.reconcile()
             return true
         } catch { self.error = error.localizedDescription; return false }
     }

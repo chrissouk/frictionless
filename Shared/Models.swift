@@ -6,7 +6,6 @@ struct TrackedTask: Codable, Identifiable, Equatable {
     var color: Int
     var order: Int
     var archived = false
-    var shortcut = false
 }
 
 struct RecordedInterval: Codable, Identifiable, Equatable {

@@ -62,7 +62,7 @@ struct IntervalEditorView: View {
         do {
             let result = try await model.store.correct(id: interval.id, taskID: taskID, start: start, end: savedEnd, previousID: previousInterval?.id)
             model.state = result
-            model.presentationNotice = await LiveCoordinator.shared.reconcile()
+            await LiveCoordinator.shared.reconcile()
             dismiss()
         } catch { validation = error.localizedDescription }
     }

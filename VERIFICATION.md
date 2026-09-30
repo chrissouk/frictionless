@@ -12,17 +12,21 @@ On iPhone 15 Pro / iOS 17.0:
 
 The complete suite reported `TEST SUCCEEDED`; the final fixture test also reported `TEST SUCCEEDED`. Earlier failing runs were resolved before delivery. Simulator signing used a local ad-hoc identity, not an Apple Developer identity.
 
-Inspected rendered empty/task screens, audit bars/timeline, interval editor, and largest-text picker/audit. Also inspected iOS 26 simulator renders during implementation. Saved iOS 17 screenshots: [Tasks](Screenshots/tasks.png), [Audit after correction](Screenshots/audit.png), [Largest-text audit](Screenshots/large-text-audit.png). Screenshot records exist only in explicit debug UI-test storage; normal first launch is empty.
+Inspected rendered empty/task screens, audit bars/timeline, interval editor, and largest-text picker/audit. Saved screenshots: [Tasks on iOS 26](Screenshots/tasks.png), [Audit after correction on iOS 17](Screenshots/audit.png), [Largest-text audit on iOS 17](Screenshots/large-text-audit.png). Screenshot records exist only in explicit debug UI-test storage; normal first launch is empty.
 
 ## Task picker update
 
 The three UI tests passed again after replacing the add-task sheet with inline creation in the manager and moving Today / Manage tasks to the bottom. Inspected empty and populated picker screenshots: the background fills the screen. Bottom controls stack vertically at accessibility text sizes; a targeted largest-text test verifies that layout. Storage logic is unchanged; the ten unit tests above were not rerun for this UI-only update.
 
+## Automatic task controls and header
+
+On iPhone 17 Pro / iOS 26, all 14 unit tests and 3 UI tests passed. Every available task participates automatically; longer lists have in-activity page controls. Tests cover complete task access, ordering/archiving, bounded Unicode payloads, unchanged recording while browsing, and decoding saved task data from the previous version. A targeted compatibility test also passed for decoding an existing activity. After replacing an invisible native navigation title with a plain “What’s next?” header, all 3 UI tests passed again and screenshots confirmed visibility at normal and largest text sizes. Physical locked-device intent execution remains part of the device checks below.
+
 ## Remaining device checks
 
 No physical iPhone was available for testing. Select your actual developer team and enable the shared App Group on both targets before running on your iPhone. Device provisioning/signing has not been verified.
 
-The Live Activity extension and LiveActivityIntent actions are implemented and compile. Physical Lock Screen/compact/minimal/expanded Dynamic Island presentation, direct shortcut execution while locked/after app termination, disabled/dismissed activities, and eight-hour expiration still need device verification. Do not interpret simulator UI tests as proof of those physical-device behaviors. VoiceOver labels and Dynamic Type are implemented; a spoken VoiceOver pass on hardware remains unchecked.
+The Live Activity extension and LiveActivityIntent actions are implemented and compile. Physical Lock Screen/compact/minimal/expanded Dynamic Island presentation, direct task switching and page navigation while locked/after app termination, disabled/dismissed activities, and eight-hour expiration still need device verification. Do not interpret simulator UI tests as proof of those physical-device behaviors. VoiceOver labels and Dynamic Type are implemented; a spoken VoiceOver pass on hardware remains unchecked.
 
 Apple supports foreground Live Activity requests and the LiveActivityIntent background exception. Presentation has an eight-hour active lifetime; recording continues from saved timestamps. There is no renewal service. References: [Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities), [LiveActivityIntent](https://developer.apple.com/documentation/appintents/liveactivityintent).
 

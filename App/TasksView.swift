@@ -12,6 +12,9 @@ struct TasksView: View {
                 Theme.background.ignoresSafeArea()
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
+                        Text("What’s next?").font(.largeTitle.weight(.bold))
+                            .padding(.top, 16).padding(.bottom, 24)
+                            .accessibilityAddTraits(.isHeader)
                         if model.state.visibleTasks.isEmpty {
                             VStack(alignment: .leading, spacing: 20) {
                                 Text("Add a task, then tap it to record.")
@@ -30,16 +33,11 @@ struct TasksView: View {
                                 Task { await model.select(nil) }
                             }.frame(minHeight: 56).padding(.top, 20)
                         }
-                        if let notice = model.presentationNotice {
-                            Text(notice).font(.footnote).foregroundStyle(.secondary).padding(.top, 16)
-                        }
                     }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 24)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .foregroundStyle(Theme.text)
-            .navigationTitle("Tasks")
-            .toolbarBackground(Theme.background, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbar(.hidden, for: .navigationBar)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 VStack(spacing: 0) {
                     undoBar

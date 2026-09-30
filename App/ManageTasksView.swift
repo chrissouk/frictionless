@@ -17,10 +17,6 @@ struct ManageTasksView: View {
                                 Circle().fill(Theme.color(task.color)).frame(width: 10, height: 10)
                                 Text(task.name).foregroundStyle(Theme.text)
                                 Spacer()
-                                if task.shortcut {
-                                    Image(systemName: "bolt.fill").foregroundStyle(Theme.mint)
-                                        .accessibilityLabel("Live Activity shortcut")
-                                }
                             }.frame(minHeight: 44)
                         }.listRowBackground(Theme.surface)
                             .accessibilityIdentifier("managed-task-\(task.name)")
@@ -74,7 +70,6 @@ struct TaskEditorView: View {
     let task: TrackedTask
     @State private var name = ""
     @State private var color = 0
-    @State private var shortcut = false
     @State private var loaded = false
     @State private var validation: String?
     var body: some View {
@@ -87,7 +82,6 @@ struct TaskEditorView: View {
                         Text(colorNames[index]).tag(index)
                     }
                 }
-                Toggle("Live Activity shortcut", isOn: $shortcut)
                 Button("Archive task", role: .destructive) {
                     Task {
                         if await model.perform({ try await model.store.archive(task.id) }) { dismiss() }
@@ -103,7 +97,7 @@ struct TaskEditorView: View {
                         Button("Save") {
                             Task {
                                 let saved = await model.perform {
-                                    try await model.store.saveTask(id: task.id, name: name, color: color, shortcut: shortcut)
+                                    try await model.store.saveTask(id: task.id, name: name, color: color)
                                 }
                                 if saved { dismiss() }
                                 else { validation = model.error; model.error = nil }
@@ -113,7 +107,7 @@ struct TaskEditorView: View {
                 }.onAppear {
                     guard !loaded else { return }
                     loaded = true
-                    name = task.name; color = task.color; shortcut = task.shortcut
+                    name = task.name; color = task.color
                 }
         }
     }

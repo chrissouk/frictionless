@@ -21,6 +21,7 @@ final class FrictionlessUITests: XCTestCase {
         capture(app, "Inline task creation")
         app.navigationBars["Manage tasks"].buttons["Done"].tap()
         XCTAssertTrue(app.buttons["task-\(name)"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["What’s next?"].isHittable)
     }
 
     func testTaskSwitchAuditCorrectionAndRelaunch() {
@@ -28,6 +29,7 @@ final class FrictionlessUITests: XCTestCase {
         app.launchArguments = ["--ui-testing", "--reset-ui-storage"]
         app.launch()
         XCTAssertTrue(app.buttons["Add task"].firstMatch.waitForExistence(timeout: 10))
+        XCTAssertTrue(app.staticTexts["What’s next?"].isHittable)
         capture(app, "Empty tasks")
         addTask(app, name: "Writing")
         app.buttons["Manage tasks"].tap()

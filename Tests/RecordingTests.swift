@@ -24,6 +24,89 @@ final class RecordingTests: XCTestCase {
         XCTAssertLessThanOrEqual(state.intervals.filter { $0.end == nil }.count, 1)
     }
 
+    func testEveryTaskIsAvailableInActivityPages() async throws {
+        for name in ["Work", "Rest", "Read", "Walk", "Cook", "Study", "Sleep"] {
+            _ = try await store.saveTask(name: name)
+        }
+        let tasks = try await store.snapshot().visibleTasks
+        let state = try await store.switchTask(tasks[0].id, now: epoch)
+        let first = try XCTUnwrap(RecordingAttributes.ContentState.make(state: state))
+        var available: [String] = []
+        for page in 0..<first.pageCount {
+            let content = try XCTUnwrap(RecordingAttributes.ContentState.make(state: state, page: page))
+            available.append(contentsOf: content.tasks.map(\.id))
+            XCTAssertEqual(content.start, epoch)
+        }
+        XCTAssertEqual(available, tasks.map { $0.id.uuidString })
+        let afterBrowsing = try await store.snapshot()
+        XCTAssertEqual(afterBrowsing.revision, state.revision)
+        XCTAssertEqual(afterBrowsing.intervals, state.intervals)
+        let switched = try await store.switchTask(tasks[6].id, now: epoch.addingTimeInterval(60))
+        XCTAssertEqual(RecordingAttributes.ContentState.make(state: switched)?.name, "Sleep")
+        let reopened = try await RecordingStore(url: directory.appendingPathComponent("test.sqlite")).snapshot()
+        XCTAssertEqual(reopened.active?.taskID, tasks[6].id)
+    }
+
+    func testActivityPagesFollowOrderAndExcludeArchivedTasks() async throws {
+        for name in ["Work", "Rest", "Read", "Walk", "Cook"] {
+            _ = try await store.saveTask(name: name)
+        }
+        let tasks = try await store.snapshot().visibleTasks
+        _ = try await store.switchTask(tasks[0].id, now: epoch)
+        _ = try await store.reorder(tasks.reversed().map(\.id))
+        _ = try await store.saveTask(id: tasks[4].id, name: "Dinner")
+        let state = try await store.archive(tasks[3].id, now: epoch)
+        let first = try XCTUnwrap(RecordingAttributes.ContentState.make(state: state, page: -1))
+        XCTAssertEqual(first.page, 0)
+        XCTAssertEqual(first.tasks.map(\.name), ["Dinner", "Read"])
+        let last = try XCTUnwrap(RecordingAttributes.ContentState.make(state: state, page: Int.max))
+        XCTAssertEqual(last.tasks.map(\.name), ["Rest", "Work"])
+        XCTAssertEqual(last.page, last.pageCount - 1)
+        let stopped = try await store.switchTask(nil, now: epoch.addingTimeInterval(60))
+        XCTAssertNil(RecordingAttributes.ContentState.make(state: stopped))
+    }
+
+    func testActivityPayloadFitsWithLongUnicodeTaskNames() throws {
+        let name = String(repeating: "👨‍👩‍👧‍👦", count: 1000)
+        let tasks = (0..<25).map { TrackedTask(name: name, color: 0, order: $0) }
+        let interval = RecordedInterval(taskID: tasks[0].id, start: epoch)
+        let state = RecordingState(tasks: tasks, intervals: [interval])
+        let attributes = RecordingAttributes(intervalID: interval.id.uuidString)
+        let attributeBytes = try JSONEncoder().encode(attributes).count
+        let first = try XCTUnwrap(RecordingAttributes.ContentState.make(state: state))
+        var available: [String] = []
+        for page in 0..<first.pageCount {
+            let content = try XCTUnwrap(RecordingAttributes.ContentState.make(state: state, page: page))
+            let payload = try JSONEncoder().encode(content)
+            XCTAssertLessThan(payload.count + attributeBytes, 4096)
+            XCTAssertEqual(try JSONDecoder().decode(RecordingAttributes.ContentState.self, from: payload), content)
+            XCTAssertFalse(content.name.isEmpty)
+            available.append(contentsOf: content.tasks.map(\.id))
+        }
+        XCTAssertEqual(available, tasks.map { $0.id.uuidString })
+        XCTAssertEqual(state.tasks[0].name, name)
+    }
+
+    func testExistingTaskConfigurationStillDecodesWithoutLosingHistory() throws {
+        let task = TrackedTask(name: "Work", color: 0, order: 0)
+        let interval = RecordedInterval(taskID: task.id, start: epoch)
+        let state = RecordingState(tasks: [task], intervals: [interval], revision: 4)
+        let encoded = try JSONEncoder().encode(state)
+        let json = try XCTUnwrap(String(data: encoded, encoding: .utf8))
+        let legacy = json.replacingOccurrences(of: "\"archived\":false", with: "\"archived\":false,\"shortcut\":false")
+        XCTAssertNotEqual(legacy, json)
+        let restored = try JSONDecoder().decode(RecordingState.self, from: Data(legacy.utf8))
+        XCTAssertEqual(restored.tasks, state.tasks)
+        XCTAssertEqual(restored.intervals, state.intervals)
+        XCTAssertEqual(restored.revision, 4)
+        XCTAssertEqual(RecordingAttributes.ContentState.make(state: restored)?.tasks.first?.id, task.id.uuidString)
+        let legacyActivity = Data(#"{"name":"Work","color":0,"start":0,"shortcuts":[]}"#.utf8)
+        let content = try JSONDecoder().decode(RecordingAttributes.ContentState.self, from: legacyActivity)
+        XCTAssertEqual(content.name, "Work")
+        XCTAssertEqual(content.page, 0)
+        XCTAssertEqual(content.pageCount, 1)
+    }
+
     func testStartSwitchSameTaskStopAndRelaunch() async throws {
         let tasks = try await tasks()
         var state = try await store.switchTask(tasks[0].id, now: epoch)

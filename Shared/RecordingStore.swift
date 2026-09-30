@@ -139,21 +139,16 @@ actor RecordingStore {
         }
     }
 
-    func saveTask(id: UUID? = nil, name: String, color: Int? = nil, shortcut: Bool? = nil) throws -> RecordingState {
+    func saveTask(id: UUID? = nil, name: String, color: Int? = nil) throws -> RecordingState {
         let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { throw RecordingError.invalid("Enter a task name.") }
         return try mutate { state in
             if let id, let index = state.tasks.firstIndex(where: { $0.id == id }) {
                 state.tasks[index].name = trimmed
                 if let color { state.tasks[index].color = color }
-                if let shortcut { state.tasks[index].shortcut = shortcut }
             } else {
                 let count = state.tasks.count
-                let shortcuts = state.visibleTasks.filter(\.shortcut).count
-                state.tasks.append(TrackedTask(name: trimmed, color: color ?? count % 6, order: count, shortcut: shortcuts < 3))
-            }
-            guard state.visibleTasks.filter(\.shortcut).count <= 3 else {
-                throw RecordingError.invalid("Choose up to three Live Activity shortcuts.")
+                state.tasks.append(TrackedTask(name: trimmed, color: color ?? count % 6, order: count))
             }
             state.undo = nil
             return true
@@ -168,7 +163,6 @@ actor RecordingStore {
                 state.intervals[active].end = now
             }
             state.tasks[index].archived = true
-            state.tasks[index].shortcut = false
             state.undo = nil
             return true
         }

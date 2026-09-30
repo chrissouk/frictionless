@@ -7,7 +7,7 @@ A minimal native iPhone time record. Tap a task to switch. Audit your day later.
 1. Open `Frictionless.xcodeproj` and select the **Frictionless** scheme.
 2. Select your Apple Developer team for **Frictionless** and **FrictionlessLiveActivity** in Signing & Capabilities.
 3. If necessary, change `APP_BUNDLE_ID` in `Configuration/Signing.xcconfig` to a unique identifier. Enable the same App Group on both targets; its name follows the bundle identifier. Keep the entitlements and `RecordingAppGroup` matched.
-4. Connect/unlock your iPhone, enable Developer Mode if prompted, select it as the destination, and Run. Allow Live Activities in Settings.
+4. Connect/unlock your iPhone, enable Developer Mode if prompted, select it as the destination, and Run.
 
 No Apple team identifier is supplied. For personal settings excluded from Git, create `Configuration/Local.xcconfig`:
 
@@ -21,11 +21,9 @@ Changing the App Group creates a separate database; retain the old group to reta
 ## Use
 
 - Add task opens the manager. Enter names inline with New task, then tap a task in the picker to record. Same-task taps do nothing. Stop tracking is explicit. Undo lasts eight seconds and expires after later changes.
-- Manage tasks to rename, reorder, choose a muted color, archive, or select up to three Live Activity shortcuts. The first three tasks are initial shortcuts. Archive retains history and stops an active task.
+- Manage tasks to rename, reorder, choose a muted color, or archive. Archive retains history and stops an active task.
 - Today and Manage tasks sit at the bottom of the picker. Today opens duration bars and a timeline with untracked gaps. Tap an interval to correct it. “Started earlier” offers 5/15/30-minute offsets. Moving a shared switch boundary also adjusts the previous task’s end. Invalid overlaps, negative durations, and future edits are rejected.
-- Live Activity shortcut buttons switch directly. All tasks and the activity body open the picker. Standard system touch-and-hold expands the Dynamic Island.
-
-**Eight-hour limitation:** Live Activity presentation expires after eight hours. Timestamp-based recording continues. The next eligible interaction restores presentation without splitting the interval. There is no automatic renewal, background timer, or push service.
+- Recording appears automatically on the Lock Screen and Dynamic Island. Every available task can be selected there; arrows browse longer lists. Task buttons switch directly, and All tasks opens the picker. Standard system touch-and-hold expands the Dynamic Island.
 
 Records use transactional SQLite in an App Group, shared by the app and intents. Saved recording remains authoritative if presentation fails. Day totals use local calendar boundaries, including daylight-saving changes.
 
