@@ -48,6 +48,6 @@ struct ActivityControls: View {
                 .foregroundStyle(Theme.background)
                 .background(Theme.color(state.color), in: Capsule())
         }.padding(12).foregroundStyle(Theme.text)
-            .background(Theme.color(state.color).opacity(0.16), in: RoundedRectangle(cornerRadius: 16))
+//            .background(Theme.color(state.color).opacity(0.16), in: RoundedRectangle(cornerRadius: 16))
     }
 }

@@ -25,6 +25,7 @@
 		79E22E76675EEF5D05F8C237 /* FrictionlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8EAFB8E741A78B4BF2F85 /* FrictionlessUITests.swift */; };
 		8227E78937AACBF204C56484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433A39A1B07FF6E5374869CB /* Foundation.framework */; };
 		8A45E338C429E8450C1D22D6 /* FrictionlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */; };
+		8E2D546E306EECAB008E1639 /* logo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2D546D306EECA8008E1639 /* logo.txt */; };
 		AA3E5968C840B20F39A3D505 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68912921A27E44587A46B7C /* Models.swift */; };
 		ADE281119143C384CFFA94A1 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339A4B4A1C277E075534326 /* LiveRecording.swift */; };
 		B9E551E448355D524D5C8F83 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D93180F4E89D587364355 /* Theme.swift */; };
@@ -83,6 +84,7 @@
 		433A39A1B07FF6E5374869CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5B0D93180F4E89D587364355 /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Shared/Theme.swift; sourceTree = "<group>"; };
 		6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingStore.swift; path = Shared/RecordingStore.swift; sourceTree = "<group>"; };
+		8E2D546D306EECA8008E1639 /* logo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = logo.txt; sourceTree = "<group>"; };
 		9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FrictionlessLiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessActivity.swift; path = LiveActivity/FrictionlessActivity.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */,
 				28A015D5FF237B01A4A2D3F5 /* TasksView.swift */,
 				AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */,
+				8E2D546D306EECA8008E1639 /* logo.txt */,
 				F4DCCB32432EDF461FB0D873 /* RecordingTests.swift */,
 				07E8EAFB8E741A78B4BF2F85 /* FrictionlessUITests.swift */,
 				D4CA8EECD0E2A5C545CF9A70 /* Assets.xcassets */,
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66CAEA12CC528DFEA6CA05A1 /* Assets.xcassets in Resources */,
+				8E2D546E306EECAB008E1639 /* logo.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
