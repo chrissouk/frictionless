@@ -20,7 +20,8 @@ struct RecordingWidget: Widget {
                 Image(systemName: "circle.fill").foregroundStyle(Theme.color(context.state.color))
                     .accessibilityLabel("Recording \(context.state.name)")
             } compactTrailing: {
-                Text(context.state.start, style: .timer).monospacedDigit().font(.caption2).frame(width: 72)
+                Text(context.state.start, style: .timer).monospacedDigit().font(.caption2)
+                    .multilineTextAlignment(.trailing).frame(width: 54, alignment: .trailing)
             } minimal: {
                 Image(systemName: "circle.fill").foregroundStyle(Theme.color(context.state.color))
                     .accessibilityLabel("Recording \(context.state.name)")
@@ -33,16 +34,20 @@ struct RecordingWidget: Widget {
 struct ActivityControls: View {
     var state: RecordingAttributes.ContentState
     var body: some View {
-        VStack(spacing: 6){
-            HStack(spacing: 12) {
-                Circle().fill(Theme.color(state.color)).frame(width: 18, height: 18)
-                    .accessibilityLabel("Recording \(state.name)")
-                Text(state.name).font(.title3).monospacedDigit()
+        HStack(spacing: 12) {
+            Circle().fill(Theme.color(state.color)).frame(width: 12, height: 12)
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(state.name).font(.headline).lineLimit(2)
                 Text(state.start, style: .timer).font(.title3).monospacedDigit()
-                Spacer()
-                Link("Switch!", destination: URL(string: "frictionless://tasks")!)
-                    .frame(minHeight: 44).backgroundStyle(Theme.mint)
-            }.foregroundStyle(Theme.text).backgroundStyle(Theme.color(state.color))
-        }
+                    .multilineTextAlignment(.leading).frame(width: 100, alignment: .leading)
+            }.frame(maxWidth: .infinity, alignment: .leading)
+            Link("Switch!", destination: URL(string: "frictionless://tasks")!)
+                .font(.subheadline.weight(.semibold)).fixedSize()
+                .padding(.horizontal, 14).frame(minHeight: 44)
+                .foregroundStyle(Theme.background)
+                .background(Theme.color(state.color), in: Capsule())
+        }.padding(12).foregroundStyle(Theme.text)
+            .background(Theme.color(state.color).opacity(0.16), in: RoundedRectangle(cornerRadius: 16))
     }
 }
