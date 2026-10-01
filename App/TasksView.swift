@@ -12,10 +12,9 @@ struct TasksView: View {
                 Theme.background.ignoresSafeArea()
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        
                         if let interval = model.state.active,
                            let task = model.state.tasks.first(where: { $0.id == interval.taskID }) {
-                            Text("Now doing:").font(.largeTitle).padding(.top, 36).padding(.bottom, 12)
+                            Text("Now doing").font(.title2.weight(.semibold)).padding(.bottom, 12)
                                 .accessibilityAddTraits(.isHeader)
                             activeRow(task, start: interval.start)
                                 .padding(.bottom, 28)
@@ -27,16 +26,17 @@ struct TasksView: View {
                                 Button("Add task", systemImage: "plus") { management = true }
                                     .buttonStyle(.borderedProminent).foregroundStyle(Theme.background)
                                     .frame(minHeight: 44)
-                            }.padding(.vertical, 48)
+                            }.padding(.bottom, 28)
                         }
                         Text("What’s next?").font(.largeTitle.weight(.bold))
-                            .padding(.top, 12).padding(.bottom, 12)
+                            .padding(.bottom, 12)
                             .accessibilityAddTraits(.isHeader)
                         ForEach(model.state.visibleTasks.filter { $0.id != model.state.active?.taskID }) { task in
                             taskRow(task)
                             Divider()
                         }
-                    }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 24)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24).padding(.top, 28).padding(.bottom, 20)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .foregroundStyle(Theme.text)
@@ -82,7 +82,7 @@ struct TasksView: View {
                 Circle().fill(Theme.color(task.color)).frame(width: 10, height: 10)
                 Text(task.name).font(.title2.weight(.medium)).multilineTextAlignment(.leading)
                 Spacer(minLength: 8)
-            }.padding(.vertical, 25).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
+            }.padding(.vertical, 20).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
                 .contentShape(Rectangle())
         }.buttonStyle(.plain)
             .accessibilityIdentifier("task-\(task.name)")
@@ -97,6 +97,7 @@ struct TasksView: View {
                 Text(task.name).font(.title2.weight(.medium)).multilineTextAlignment(.leading)
                 if !textSize.isAccessibilitySize { Spacer(minLength: 8) }
                 Text(start, style: .timer).font(.title3).monospacedDigit()
+                    .fixedSize(horizontal: true, vertical: false)
                     .multilineTextAlignment(.trailing)
             }.padding(20).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
                 .background(Theme.color(task.color).opacity(0.3), in: RoundedRectangle(cornerRadius: 16))

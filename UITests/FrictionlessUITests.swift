@@ -102,15 +102,15 @@ final class FrictionlessUITests: XCTestCase {
         app.buttons["interval-Reading"].firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Correct interval"].waitForExistence(timeout: 5))
         capture(app, "Interval correction")
-        app.buttons["5m"].tap()
+        XCTAssertFalse(app.staticTexts["Started earlier"].exists)
+        XCTAssertFalse(app.buttons["5m"].exists)
         app.buttons["Save"].tap()
         XCTAssertTrue(app.navigationBars["Daily audit"].waitForExistence(timeout: 5))
         let closed = NSPredicate(format: "exists == false")
         expectation(for: closed, evaluatedWith: app.navigationBars["Correct interval"])
         waitForExpectations(timeout: 5)
         capture(app, "Audit after correction")
-        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS '55m'")).firstMatch.waitForExistence(timeout: 5))
-        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS '1h 5m'")).firstMatch.exists)
+        XCTAssertTrue(app.staticTexts["2h 0m"].exists)
     }
 
     func testAccessibilityLargeText() {
