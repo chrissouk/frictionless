@@ -26,18 +26,6 @@ struct IntervalEditorView: View {
                     }
                 }
                 DatePicker("Started", selection: $start, in: ...Date(), displayedComponents: [.date, .hourAndMinute])
-                Section("Started earlier") {
-                    HStack {
-                        ForEach([5, 15, 30], id: \.self) { minutes in
-                            Button("\(minutes)m") { start = interval.start.addingTimeInterval(Double(-minutes * 60)) }
-                                .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderless)
-                        }
-                    }
-                    if previousInterval != nil {
-                        Text("Changing this start also adjusts the previous task’s end.")
-                            .font(.footnote).foregroundStyle(.secondary)
-                    }
-                }
                 if interval.end == nil { Toggle("Finish this recording", isOn: $finish) }
                 if interval.end != nil || finish {
                     DatePicker("Ended", selection: $end, in: ...Date(), displayedComponents: [.date, .hourAndMinute])

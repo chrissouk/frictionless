@@ -24,7 +24,7 @@ First launch walks through how recording works, adding your tasks, choosing your
 
 - Enter names inline with New task during setup or task management, then tap a task in the picker to record. The active task moves into a colored Now section with elapsed time; other tasks keep their saved order. Same-task taps do nothing. Stop tracking sits above the bottom navigation. Undo lasts eight seconds and expires after later changes.
 - Manage tasks to rename, reorder, choose a muted color, or archive. Archive retains history and stops an active task.
-- Today and Manage tasks sit at the bottom of the picker. Today opens duration bars and a timeline with untracked gaps. Tap an interval to correct it. “Started earlier” offers 5/15/30-minute offsets. Moving a shared switch boundary also adjusts the previous task’s end. Invalid overlaps, negative durations, and future edits are rejected.
+- Today and Manage tasks sit at the bottom of the picker. Today opens duration bars and a timeline with untracked gaps. Tap an interval to correct its task or times. Moving a shared switch boundary also adjusts the previous task’s end. Invalid overlaps, negative durations, and future edits are rejected.
 - Recording appears automatically on the Lock Screen and Dynamic Island with the task color and elapsed time. Switch! opens the task picker. Standard system touch-and-hold expands the Dynamic Island.
 
 Records use transactional SQLite in an App Group, shared by the app and intents. Saved recording remains authoritative if presentation fails. Day totals use local calendar boundaries, including daylight-saving changes.

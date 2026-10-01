@@ -12,21 +12,22 @@ struct TasksView: View {
                 Theme.background.ignoresSafeArea()
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("What’s next?").font(.largeTitle.weight(.bold))
-                            .padding(.top, 16).padding(.bottom, 24)
-                            .accessibilityAddTraits(.isHeader)
                         if let interval = model.state.active,
                            let task = model.state.tasks.first(where: { $0.id == interval.taskID }) {
-                            Text("Now").font(.subheadline).foregroundStyle(.secondary)
-                                .accessibilityAddTraits(.isHeader).padding(.bottom, 8)
+                            Text("Now doing").font(.title3.weight(.semibold)).padding(.bottom, 12)
+                                .accessibilityAddTraits(.isHeader)
                             activeRow(task, start: interval.start)
                                 .padding(.bottom, 28)
                         }
+                        Text("What’s next?").font(.title3.weight(.semibold))
+                            .padding(.bottom, 12)
+                            .accessibilityAddTraits(.isHeader)
                         ForEach(model.state.visibleTasks.filter { $0.id != model.state.active?.taskID }) { task in
                             taskRow(task)
                             Divider()
                         }
-                    }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 24)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24).padding(.top, 28).padding(.bottom, 20)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .foregroundStyle(Theme.text)
@@ -70,9 +71,9 @@ struct TasksView: View {
         } label: {
             HStack(spacing: 16) {
                 Circle().fill(Theme.color(task.color)).frame(width: 10, height: 10)
-                Text(task.name).font(.title2.weight(.medium)).multilineTextAlignment(.leading)
+                Text(task.name).font(.body).multilineTextAlignment(.leading)
                 Spacer(minLength: 8)
-            }.padding(.vertical, 25).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
+            }.padding(.vertical, 16).frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
                 .contentShape(Rectangle())
         }.buttonStyle(.plain)
             .accessibilityIdentifier("task-\(task.name)")
@@ -84,11 +85,12 @@ struct TasksView: View {
             Task { await model.select(task.id) }
         } label: {
             bottomLayout {
-                Text(task.name).font(.title2.weight(.medium)).multilineTextAlignment(.leading)
+                Text(task.name).font(.body).multilineTextAlignment(.leading)
                 if !textSize.isAccessibilitySize { Spacer(minLength: 8) }
-                Text(start, style: .timer).font(.title3).monospacedDigit()
+                Text(start, style: .timer).font(.body).monospacedDigit()
+                    .fixedSize(horizontal: true, vertical: false)
                     .multilineTextAlignment(.trailing)
-            }.padding(20).frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
+            }.padding(16).frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
                 .background(Theme.color(task.color).opacity(0.3), in: RoundedRectangle(cornerRadius: 16))
                 .contentShape(Rectangle())
         }.buttonStyle(.plain)
