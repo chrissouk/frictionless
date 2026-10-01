@@ -25,7 +25,7 @@ struct ManageTasksView: View {
                         ids.move(fromOffsets: source, toOffset: destination)
                         Task { _ = await model.perform { try await model.store.reorder(ids) } }
                     }
-                } footer: { Text("Drag to reorder. Tap a task to edit it.") }
+                } footer: { Text("Drag to reorder. Tap to edit.") }
                 HStack {
                     Image(systemName: "plus.circle.fill").foregroundStyle(Theme.mint)
                         .accessibilityHidden(true)
