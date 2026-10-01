@@ -15,8 +15,7 @@ struct TasksView: View {
                         
                         if let interval = model.state.active,
                            let task = model.state.tasks.first(where: { $0.id == interval.taskID }) {
-                            Text("Now doing:").font(.largeTitle)
-                                .padding(.top, 40).padding(.bottom, 12)
+                            Text("Now doing:").font(.largeTitle).padding(.top, 36).padding(.bottom, 12)
                                 .accessibilityAddTraits(.isHeader)
                             activeRow(task, start: interval.start)
                                 .padding(.bottom, 28)
@@ -30,6 +29,9 @@ struct TasksView: View {
                                     .frame(minHeight: 44)
                             }.padding(.vertical, 48)
                         }
+                        Text("What’s next?").font(.largeTitle.weight(.bold))
+                            .padding(.top, 12).padding(.bottom, 12)
+                            .accessibilityAddTraits(.isHeader)
                         ForEach(model.state.visibleTasks.filter { $0.id != model.state.active?.taskID }) { task in
                             taskRow(task)
                             Divider()
@@ -39,9 +41,6 @@ struct TasksView: View {
             }
             .foregroundStyle(Theme.text)
             .toolbar(.hidden, for: .navigationBar)
-            Text("What’s next?").font(.largeTitle.weight(.bold))
-                .padding(.top, 20).padding(.bottom, 12)
-                .accessibilityAddTraits(.isHeader)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 VStack(spacing: 0) {
                     undoBar

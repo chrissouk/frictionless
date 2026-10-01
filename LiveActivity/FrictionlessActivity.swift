@@ -33,14 +33,16 @@ struct RecordingWidget: Widget {
 struct ActivityControls: View {
     var state: RecordingAttributes.ContentState
     var body: some View {
-        HStack(spacing: 12) {
-            Circle().fill(Theme.color(state.color)).frame(width: 18, height: 18)
-                .accessibilityLabel("Recording \(state.name)")
-            Text(state.name).font(.title3).monospacedDigit()
-            Text(state.start, style: .timer).font(.title3).monospacedDigit()
-            Spacer()
-            Link("Switch!", destination: URL(string: "frictionless://tasks")!)
-                .frame(minHeight: 44).backgroundStyle(Theme.mint)
-        }.foregroundStyle(Theme.text).backgroundStyle(Theme.color(state.color))
+        VStack(spacing: 6){
+            HStack(spacing: 12) {
+                Circle().fill(Theme.color(state.color)).frame(width: 18, height: 18)
+                    .accessibilityLabel("Recording \(state.name)")
+                Text(state.name).font(.title3).monospacedDigit()
+                Text(state.start, style: .timer).font(.title3).monospacedDigit()
+                Spacer()
+                Link("Switch!", destination: URL(string: "frictionless://tasks")!)
+                    .frame(minHeight: 44).backgroundStyle(Theme.mint)
+            }.foregroundStyle(Theme.text).backgroundStyle(Theme.color(state.color))
+        }
     }
 }
