@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,7 +28,7 @@
 		AA3E5968C840B20F39A3D505 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68912921A27E44587A46B7C /* Models.swift */; };
 		ADE281119143C384CFFA94A1 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339A4B4A1C277E075534326 /* LiveRecording.swift */; };
 		B9E551E448355D524D5C8F83 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D93180F4E89D587364355 /* Theme.swift */; };
-		BF4589B4C6153D39EB368E75 /* FrictionlessLiveActivity.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF4589B4C6153D39EB368E75 /* FrictionlessLiveActivity.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E2BC3EED3111F86CF1FDBF35 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339A4B4A1C277E075534326 /* LiveRecording.swift */; };
 		E602408AEFEB5A182C0B74D4 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A015D5FF237B01A4A2D3F5 /* TasksView.swift */; };
 		ED2B59A9A79276632B76A9DB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D93180F4E89D587364355 /* Theme.swift */; };
@@ -59,15 +59,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5C907A7C95839762B7F4716D /* Embed App Extensions */ = {
+		5C907A7C95839762B7F4716D /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BF4589B4C6153D39EB368E75 /* FrictionlessLiveActivity.appex in Embed App Extensions */,
+				BF4589B4C6153D39EB368E75 /* FrictionlessLiveActivity.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -76,14 +76,14 @@
 		0141C484CE987FFBEC23B84B /* FrictionlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		024917777F6546DAA4FF08DA /* FrictionlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0339A4B4A1C277E075534326 /* LiveRecording.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveRecording.swift; path = Shared/LiveRecording.swift; sourceTree = "<group>"; };
-		07A3A01EE57E55037E14943C /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		07A3A01EE57E55037E14943C /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		07E8EAFB8E741A78B4BF2F85 /* FrictionlessUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessUITests.swift; path = UITests/FrictionlessUITests.swift; sourceTree = "<group>"; };
 		28A015D5FF237B01A4A2D3F5 /* TasksView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TasksView.swift; path = App/TasksView.swift; sourceTree = "<group>"; };
 		2A13413A5DB1D849A8066553 /* AppModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModel.swift; path = App/AppModel.swift; sourceTree = "<group>"; };
 		433A39A1B07FF6E5374869CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5B0D93180F4E89D587364355 /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Shared/Theme.swift; sourceTree = "<group>"; };
 		6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingStore.swift; path = Shared/RecordingStore.swift; sourceTree = "<group>"; };
-		9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A520BBA44382563A8B71B428 /* FrictionlessLiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FrictionlessLiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessActivity.swift; path = LiveActivity/FrictionlessActivity.swift; sourceTree = "<group>"; };
 		B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrictionlessApp.swift; path = App/FrictionlessApp.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				4A0E2458A609B12858E19B0B /* Sources */,
 				5C39BE9738D411F46AA0168F /* Frameworks */,
 				0C2EAEB1450D64CD841E2F7F /* Resources */,
-				5C907A7C95839762B7F4716D /* Embed App Extensions */,
+				5C907A7C95839762B7F4716D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -268,8 +268,9 @@
 		D6198551BFB749DFA9B4ED22 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 2600;
 			};
 			buildConfigurationList = 1527E9DC8989EAF689B11DFB /* Build configuration list for PBXProject "Frictionless" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -280,8 +281,6 @@
 				Base,
 			);
 			mainGroup = 5239D297EDDD9E7E1CFA060F;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 1AE2CFEDA1D6433B14DEF610 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -406,6 +405,7 @@
 				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K94U358ZY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Configuration/App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
@@ -414,7 +414,10 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				SDKROOT = iphoneos;
@@ -452,6 +455,7 @@
 				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K94U358ZY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
 				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
@@ -474,6 +478,7 @@
 				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K94U358ZY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
 				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
@@ -563,9 +568,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -577,6 +584,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -617,9 +625,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -638,6 +648,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -673,6 +684,7 @@
 				CODE_SIGN_ENTITLEMENTS = Configuration/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K94U358ZY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Configuration/App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
@@ -681,7 +693,10 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				SDKROOT = iphoneos;

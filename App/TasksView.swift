@@ -12,13 +12,12 @@ struct TasksView: View {
                 Theme.background.ignoresSafeArea()
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("What’s next?").font(.largeTitle.weight(.bold))
-                            .padding(.top, 16).padding(.bottom, 24)
-                            .accessibilityAddTraits(.isHeader)
+                        
                         if let interval = model.state.active,
                            let task = model.state.tasks.first(where: { $0.id == interval.taskID }) {
-                            Text("Now").font(.subheadline).foregroundStyle(.secondary)
-                                .accessibilityAddTraits(.isHeader).padding(.bottom, 8)
+                            Text("Now doing:").font(.largeTitle)
+                                .padding(.top, 40).padding(.bottom, 12)
+                                .accessibilityAddTraits(.isHeader)
                             activeRow(task, start: interval.start)
                                 .padding(.bottom, 28)
                         }
@@ -40,6 +39,9 @@ struct TasksView: View {
             }
             .foregroundStyle(Theme.text)
             .toolbar(.hidden, for: .navigationBar)
+            Text("What’s next?").font(.largeTitle.weight(.bold))
+                .padding(.top, 20).padding(.bottom, 12)
+                .accessibilityAddTraits(.isHeader)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 VStack(spacing: 0) {
                     undoBar

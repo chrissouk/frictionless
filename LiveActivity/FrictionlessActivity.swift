@@ -36,10 +36,11 @@ struct ActivityControls: View {
         HStack(spacing: 12) {
             Circle().fill(Theme.color(state.color)).frame(width: 18, height: 18)
                 .accessibilityLabel("Recording \(state.name)")
+            Text(state.name).font(.title3).monospacedDigit()
             Text(state.start, style: .timer).font(.title3).monospacedDigit()
             Spacer()
             Link("Switch!", destination: URL(string: "frictionless://tasks")!)
-                .frame(minHeight: 44).foregroundStyle(Theme.mint)
-        }.foregroundStyle(Theme.text)
+                .frame(minHeight: 44).backgroundStyle(Theme.mint)
+        }.foregroundStyle(Theme.text).backgroundStyle(Theme.color(state.color))
     }
 }
