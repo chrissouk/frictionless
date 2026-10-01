@@ -22,6 +22,12 @@ The three UI tests passed again after replacing the add-task sheet with inline c
 
 On iPhone 17 Pro / iOS 26, 13 unit tests and 4 UI tests passed. The activity displays task color and elapsed time with a single Switch! link to the picker; the activity switching/paging intents were removed. The active task appears once in a tinted Now section, with elapsed time replacing the checkmark. Stop tracking sits above bottom navigation. Unit coverage includes original start timestamps, color edits without restarting recording, persistence, bounded Unicode payloads, and compatibility with older saved data. UI coverage checks switching/relaunch, active-row position, bottom Stop placement, color selection/persistence, audit correction, and largest text. Screenshots confirm the visible “What’s next?” header and active-row layout.
 
+## Onboarding — October 1, 2026
+
+On iPhone 17 Pro / iOS 26, all 13 unit tests and 5 UI tests passed. First launch replaces the empty-task screen with a short introduction, inline task setup, current-task selection, and a background-recording/privacy reminder. Tests cover multiple tasks, disabled empty continuation, resuming setup across launches, returning to task setup, recording before the reminder is dismissed, completed-onboarding bypass, existing-user bypass, and largest text. Inspected the normal and largest-text screenshots. Startup refreshes are guarded against overlapping loads so existing tasks determine the first screen consistently.
+
+Saved screenshots: [Introduction](Screenshots/onboarding-intro.png), [Task setup](Screenshots/onboarding-tasks.png), [Reminder](Screenshots/onboarding-reminder.png).
+
 ## Remaining device checks
 
 No physical iPhone was available for testing. Select your actual developer team and enable the shared App Group on both targets before running on your iPhone. Device provisioning/signing has not been verified.

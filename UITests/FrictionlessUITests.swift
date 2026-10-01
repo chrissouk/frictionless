@@ -9,17 +9,21 @@ final class FrictionlessUITests: XCTestCase {
     }
 
     private func addTask(_ app: XCUIApplication, name: String) {
-        app.buttons["Add task"].firstMatch.tap()
-        XCTAssertTrue(app.navigationBars["Manage tasks"].waitForExistence(timeout: 5))
-        XCTAssertFalse(app.navigationBars["Add task"].exists)
+        app.buttons["Get started"].tap()
+        XCTAssertTrue(app.buttons["Continue"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["Continue"].isEnabled)
         let input = app.textFields["new-task-name"]
         XCTAssertTrue(input.waitForExistence(timeout: 5))
         input.tap()
         input.typeText(name)
         app.buttons["Add"].tap()
-        XCTAssertTrue(app.buttons["managed-task-\(name)"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts[name].waitForExistence(timeout: 5))
         capture(app, "Inline task creation")
-        app.navigationBars["Manage tasks"].buttons["Done"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["onboarding-task-\(name)"].tap()
+        XCTAssertTrue(app.buttons["Let’s go"].waitForExistence(timeout: 5))
+        capture(app, "Onboarding reminder")
+        app.buttons["Let’s go"].tap()
         XCTAssertTrue(app.buttons["task-\(name)"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.staticTexts["What’s next?"].isHittable)
     }
@@ -28,9 +32,8 @@ final class FrictionlessUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["--ui-testing", "--reset-ui-storage"]
         app.launch()
-        XCTAssertTrue(app.buttons["Add task"].firstMatch.waitForExistence(timeout: 10))
-        XCTAssertTrue(app.staticTexts["What’s next?"].isHittable)
-        capture(app, "Empty tasks")
+        XCTAssertTrue(app.buttons["Get started"].waitForExistence(timeout: 10))
+        capture(app, "Onboarding intro")
         addTask(app, name: "Writing")
         app.buttons["Manage tasks"].tap()
         let field = app.textFields["new-task-name"]
@@ -65,11 +68,48 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
     }
 
+    func testOnboardingResumesWithoutLosingTasksOrRecording() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--ui-testing", "--reset-ui-storage"]
+        app.launch()
+        XCTAssertTrue(app.buttons["Get started"].waitForExistence(timeout: 10))
+        app.buttons["Get started"].tap()
+        let input = app.textFields["new-task-name"]
+        XCTAssertTrue(input.waitForExistence(timeout: 5))
+        input.tap(); input.typeText("Writing")
+        app.buttons["Add"].tap()
+        XCTAssertTrue(app.staticTexts["Writing"].waitForExistence(timeout: 5))
+        input.typeText("Reading")
+        app.buttons["Add"].tap()
+        XCTAssertTrue(app.staticTexts["Reading"].waitForExistence(timeout: 5))
+        app.terminate()
+        app.launchArguments = ["--ui-testing"]
+        app.launch()
+        XCTAssertTrue(app.staticTexts["What fills your day?"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.staticTexts["Writing"].exists)
+        XCTAssertTrue(app.staticTexts["Reading"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.buttons["onboarding-task-Reading"].exists)
+        app.buttons["Edit tasks"].tap()
+        XCTAssertTrue(app.staticTexts["Writing"].exists)
+        app.buttons["Continue"].tap()
+        app.buttons["onboarding-task-Writing"].tap()
+        XCTAssertTrue(app.buttons["Let’s go"].waitForExistence(timeout: 5))
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["Let’s go"].waitForExistence(timeout: 10))
+        app.buttons["Let’s go"].tap()
+        XCTAssertEqual(app.buttons["task-Writing"].value as? String, "Recording")
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 10))
+        XCTAssertEqual(app.buttons["task-Writing"].value as? String, "Recording")
+        XCTAssertFalse(app.buttons["Get started"].exists)
+    }
+
     func testTaskColorEditing() {
         let app = XCUIApplication()
         app.launchArguments = ["--ui-testing", "--reset-ui-storage"]
         app.launch()
-        XCTAssertTrue(app.buttons["Add task"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.buttons["Get started"].waitForExistence(timeout: 10))
         addTask(app, name: "Writing")
         app.buttons["Manage tasks"].tap()
         app.buttons["managed-task-Writing"].tap()
@@ -95,6 +135,7 @@ final class FrictionlessUITests: XCTestCase {
         app.launchArguments = ["--ui-testing", "--reset-ui-storage", "--audit-fixture"]
         app.launch()
         XCTAssertTrue(app.buttons["task-Writing"].waitForExistence(timeout: 10))
+        XCTAssertFalse(app.buttons["Get started"].exists)
         app.buttons["Today"].tap()
         app.buttons["Previous day"].tap()
         XCTAssertTrue(app.staticTexts["2h 0m"].waitForExistence(timeout: 5))
@@ -117,8 +158,8 @@ final class FrictionlessUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["--ui-testing", "--reset-ui-storage", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
         app.launch()
-        XCTAssertTrue(app.buttons["Add task"].firstMatch.waitForExistence(timeout: 10))
-        capture(app, "Large text empty")
+        XCTAssertTrue(app.buttons["Get started"].waitForExistence(timeout: 10))
+        capture(app, "Large text onboarding")
         addTask(app, name: "A longer task name for reading")
         app.buttons["task-A longer task name for reading"].tap()
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))

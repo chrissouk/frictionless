@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA0011001100110011001100 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0011001100110011001101 /* OnboardingView.swift */; };
 		031143CF8E82C9660B17A43F /* FrictionlessActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA64E10DDB37D192C372B4 /* FrictionlessActivity.swift */; };
 		0562BB03DA20EE49DA9CF95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61A2BF0BB3D5CAAE8D1E09 /* libsqlite3.tbd */; };
 		0AE9447A9A029BB6EFEE4CF5 /* RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA0011001100110011001101 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/OnboardingView.swift; sourceTree = "<group>"; };
 		0141C484CE987FFBEC23B84B /* FrictionlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		024917777F6546DAA4FF08DA /* FrictionlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0339A4B4A1C277E075534326 /* LiveRecording.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveRecording.swift; path = Shared/LiveRecording.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				DC557E69E33F1D6121A4B100 /* AuditView.swift */,
 				D2969EAFC66705F9A60A675A /* IntervalEditorView.swift */,
 				2A13413A5DB1D849A8066553 /* AppModel.swift */,
+				AA0011001100110011001101 /* OnboardingView.swift */,
 				BEE8113F8AEF66621F669C23 /* ManageTasksView.swift */,
 				B7A151DD553604F3E3F068A5 /* FrictionlessApp.swift */,
 				28A015D5FF237B01A4A2D3F5 /* TasksView.swift */,
@@ -346,6 +349,7 @@
 				5A48A48B3D0BB42B878FD174 /* AuditView.swift in Sources */,
 				7417347DEC83BF4F1DC0C4F6 /* IntervalEditorView.swift in Sources */,
 				379B650CDF4457F7A3B19129 /* AppModel.swift in Sources */,
+				AA0011001100110011001100 /* OnboardingView.swift in Sources */,
 				30DF7638B459E1F80C70519F /* ManageTasksView.swift in Sources */,
 				8A45E338C429E8450C1D22D6 /* FrictionlessApp.swift in Sources */,
 				E602408AEFEB5A182C0B74D4 /* TasksView.swift in Sources */,

@@ -5,13 +5,32 @@ final class AppModel: ObservableObject {
     @Published var state = RecordingState()
     @Published var error: String?
     @Published var busy = false
+    @Published private(set) var loaded = false
+    @Published private(set) var onboarding = OnboardingStep.complete
     private var pendingOperations = 0
+    private var reloadInProgress = false
     #if DEBUG
     private var hasInstalledFixture = false
     #endif
     let store = RecordingStore.shared
 
+    init() {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--reset-ui-storage") {
+            UserDefaults.standard.removeObject(forKey: "onboardingStep")
+        }
+        #endif
+    }
+
+    func setOnboarding(_ step: OnboardingStep) {
+        UserDefaults.standard.set(step.rawValue, forKey: "onboardingStep")
+        onboarding = step
+    }
+
     func reload() async {
+        guard !reloadInProgress else { return }
+        reloadInProgress = true
+        defer { reloadInProgress = false }
         do {
             var latest = try await store.snapshot()
             #if DEBUG
@@ -29,6 +48,15 @@ final class AppModel: ObservableObject {
             }
             #endif
             if latest.revision >= state.revision { state = latest }
+            if !loaded {
+                if let saved = UserDefaults.standard.object(forKey: "onboardingStep") as? Int,
+                   let step = OnboardingStep(rawValue: saved) {
+                    onboarding = step
+                } else if latest.tasks.isEmpty {
+                    onboarding = .intro
+                }
+                loaded = true
+            }
         }
         catch { self.error = error.localizedDescription }
         await LiveCoordinator.shared.reconcile()

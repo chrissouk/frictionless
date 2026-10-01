@@ -3,9 +3,6 @@ import SwiftUI
 struct ManageTasksView: View {
     @EnvironmentObject private var model: AppModel
     @Environment(\.dismiss) private var dismiss
-    @State private var newTaskName = ""
-    @State private var validation: String?
-    @FocusState private var creatorFocused: Bool
     @State private var editing: TrackedTask?
     var body: some View {
         NavigationStack {
@@ -26,40 +23,12 @@ struct ManageTasksView: View {
                         Task { _ = await model.perform { try await model.store.reorder(ids) } }
                     }
                 } footer: { Text("Drag to reorder. Tap a task to edit it.") }
-                HStack {
-                    Image(systemName: "plus.circle.fill").foregroundStyle(Theme.mint)
-                        .accessibilityHidden(true)
-                    TextField("New task", text: $newTaskName)
-                        .accessibilityIdentifier("new-task-name")
-                        .focused($creatorFocused).submitLabel(.done)
-                        .onSubmit { Task { await addTask() } }
-                    if !newTaskName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        Button("Add") { Task { await addTask() } }
-                            .buttonStyle(.borderless).frame(minHeight: 44).disabled(model.busy)
-                    }
-                }.frame(minHeight: 44).listRowBackground(Theme.surface)
-                if let validation { Text(validation).foregroundStyle(.red) }
+                TaskCreator().listRowBackground(Theme.surface)
             }.scrollContentBackground(.hidden).background(Theme.background)
                 .navigationTitle("Manage tasks")
                 .environment(\.editMode, .constant(.active))
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
                 .sheet(item: $editing) { TaskEditorView(task: $0) }
-                .task {
-                    if model.state.visibleTasks.isEmpty { creatorFocused = true }
-                }
-        }
-    }
-
-    private func addTask() async {
-        let name = newTaskName.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty, !model.busy else { return }
-        if await model.perform({ try await model.store.saveTask(name: name) }) {
-            newTaskName = ""
-            validation = nil
-            creatorFocused = true
-        } else {
-            validation = model.error
-            model.error = nil
         }
     }
 }
