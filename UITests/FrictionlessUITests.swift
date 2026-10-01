@@ -47,6 +47,13 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertGreaterThan(app.buttons["Stop tracking"].frame.minY, app.buttons["task-Writing"].frame.maxY)
         XCTAssertLessThan(app.buttons["Stop tracking"].frame.maxY, app.buttons["Today"].frame.minY)
         capture(app, "Task picker recording")
+        XCUIDevice.shared.press(.home)
+        let home = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        XCTAssertTrue(home.icons["Settings"].waitForExistence(timeout: 5))
+        capture(home, "Dynamic Island recording")
+        home.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.035)).press(forDuration: 1)
+        capture(home, "Expanded Live Activity")
+        app.activate()
         app.terminate()
         app.launchArguments = ["--ui-testing"]
         app.launch()

@@ -33,3 +33,10 @@ Presentation has an eight-hour active lifetime; recording continues from saved t
 ## Simulator environment
 
 App Group access requires simulator entitlements, so do not build tests with `CODE_SIGNING_ALLOWED=NO`. Use local ad-hoc signing as shown in the README. A synced Documents directory added Finder metadata to build products and prevented code signing; building in `/tmp` resolved it. One test-host launch stalled without loading XCTest; restarting the task's simulator resolved that launch issue.
+# Typography and Live Activity — October 1, 2026
+
+- Task names and elapsed time use system body text. Both task-section headers use the same title3 semibold style; rows grow with text.
+- Replaced the Live Activity timer's unconstrained horizontal sizing with a finite width. Compact Island time is right aligned in a narrower slot.
+- All 13 unit and 4 UI tests passed on iPhone 17 Pro / iOS 26. The switching/relaunch flow also passed with Home Screen and expanded Island captures.
+- Inspected compact and expanded Island screenshots: content renders, and the compact timer has no extra blank space to its right. Physical-device behavior remains unverified.
+- Screenshots: [compact Island](Screenshots/dynamic-island-compact.png), [expanded activity](Screenshots/live-activity-expanded.png).

@@ -20,7 +20,8 @@ struct RecordingWidget: Widget {
                 Image(systemName: "circle.fill").foregroundStyle(Theme.color(context.state.color))
                     .accessibilityLabel("Recording \(context.state.name)")
             } compactTrailing: {
-                Text(context.state.start, style: .timer).monospacedDigit().font(.caption2).frame(width: 72)
+                Text(context.state.start, style: .timer).monospacedDigit().font(.caption2)
+                    .multilineTextAlignment(.trailing).frame(width: 54, alignment: .trailing)
             } minimal: {
                 Image(systemName: "circle.fill").foregroundStyle(Theme.color(context.state.color))
                     .accessibilityLabel("Recording \(context.state.name)")
@@ -39,7 +40,7 @@ struct ActivityControls: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(state.name).font(.headline).lineLimit(2)
                 Text(state.start, style: .timer).font(.title3).monospacedDigit()
-                    .fixedSize(horizontal: true, vertical: false)
+                    .multilineTextAlignment(.leading).frame(width: 100, alignment: .leading)
             }.frame(maxWidth: .infinity, alignment: .leading)
             Link("Switch!", destination: URL(string: "frictionless://tasks")!)
                 .font(.subheadline.weight(.semibold)).fixedSize()
