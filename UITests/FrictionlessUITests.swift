@@ -105,7 +105,11 @@ final class FrictionlessUITests: XCTestCase {
         app.buttons["Today"].tap()
         app.buttons["Previous day"].tap()
         XCTAssertTrue(app.staticTexts["2h 0m"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.otherElements["day-clock"].exists)
         capture(app, "Daily audit with history")
+        app.swipeUp()
+        XCTAssertLessThan(app.buttons["interval-Reading"].firstMatch.frame.minY,
+                          app.buttons["interval-Writing"].firstMatch.frame.minY)
         app.buttons["interval-Reading"].firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Correct interval"].waitForExistence(timeout: 5))
         capture(app, "Interval correction")
