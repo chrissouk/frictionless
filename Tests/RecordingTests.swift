@@ -54,6 +54,59 @@ final class RecordingTests: XCTestCase {
         XCTAssertEqual(state.tasks[0].name, name)
     }
 
+    func testScheduledRenewalPreservesLongRecordingAndLegacyAttributes() throws {
+        let task = TrackedTask(name: "Work", color: 0, order: 0)
+        let interval = RecordedInterval(taskID: task.id, start: epoch)
+        let state = RecordingState(tasks: [task], intervals: [interval])
+        let presentationStart = epoch.addingTimeInterval(9 * 3600)
+        let renewal = ActivityRenewal.nextStart(presentationStart: presentationStart, now: presentationStart)
+        XCTAssertEqual(renewal.timeIntervalSince(presentationStart), 8 * 3600 - 60)
+        XCTAssertEqual(RecordingAttributes.ContentState.make(state: state)?.start, epoch)
+        let delayed = ActivityRenewal.nextStart(presentationStart: epoch, now: presentationStart)
+        XCTAssertEqual(delayed, presentationStart.addingTimeInterval(5))
+        let legacy = Data(#"{"intervalID":"saved-interval"}"#.utf8)
+        XCTAssertNil(try JSONDecoder().decode(RecordingAttributes.self, from: legacy).presentationStart)
+    }
+
+    func testWidgetActionsUseSharedTransactionsAndRejectStaleTasks() async throws {
+        let tasks = try await tasks()
+        let independent = RecordingStore(url: directory.appendingPathComponent("test.sqlite"))
+        let started = try await RecordingAction.apply(taskID: tasks[0].id.uuidString, store: independent, now: epoch)
+        let repeated = try await RecordingAction.apply(taskID: tasks[0].id.uuidString, store: store, now: epoch.addingTimeInterval(10))
+        XCTAssertEqual(repeated.revision, started.revision)
+        let switched = try await RecordingAction.apply(taskID: tasks[1].id.uuidString, store: independent, now: epoch.addingTimeInterval(60))
+        XCTAssertEqual(switched.intervals[0].end, switched.active?.start)
+        let stopped = try await RecordingAction.apply(taskID: "stop", store: independent, now: epoch.addingTimeInterval(120))
+        XCTAssertNil(stopped.active)
+        XCTAssertEqual(stopped.intervals.count, 2)
+        _ = try await store.archive(tasks[0].id, now: epoch.addingTimeInterval(130))
+        for input in ["invalid", tasks[0].id.uuidString, UUID().uuidString] {
+            do {
+                _ = try await RecordingAction.apply(taskID: input, store: independent, now: epoch.addingTimeInterval(140))
+                XCTFail("Unavailable widget task accepted")
+            } catch { XCTAssertNotNil(error as? RecordingError) }
+        }
+        let restored = try await store.snapshot()
+        XCTAssertEqual(restored.intervals, stopped.intervals)
+    }
+
+    func testWidgetTimelineIncludesMidnightAndUsesNewDayTotals() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "America/New_York")!
+        let day = calendar.date(from: DateComponents(year: 2026, month: 11, day: 1))!
+        let midnight = calendar.date(byAdding: .day, value: 1, to: day)!
+        let now = midnight.addingTimeInterval(-90)
+        let dates = WidgetDates.make(now: now, calendar: calendar)
+        XCTAssertEqual(dates.first, now)
+        XCTAssertTrue(dates.contains(midnight))
+        XCTAssertEqual(dates, dates.sorted())
+        XCTAssertEqual(Set(dates).count, dates.count)
+        let task = TrackedTask(name: "Work", color: 0, order: 0)
+        let state = RecordingState(tasks: [task], intervals: [RecordedInterval(taskID: task.id, start: now)])
+        XCTAssertEqual(DailyAudit.make(state: state, day: midnight, now: midnight, calendar: calendar).tracked, 0)
+        XCTAssertEqual(DailyAudit.make(state: state, day: midnight, now: midnight.addingTimeInterval(60), calendar: calendar).tracked, 60)
+    }
+
     func testExistingTaskConfigurationStillDecodesWithoutLosingHistory() throws {
         let task = TrackedTask(name: "Work", color: 0, order: 0)
         let interval = RecordedInterval(taskID: task.id, start: epoch)

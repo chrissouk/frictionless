@@ -4,7 +4,10 @@ import SwiftUI
 
 @main
 struct FrictionlessWidgets: WidgetBundle {
-    var body: some Widget { RecordingWidget() }
+    var body: some Widget {
+        RecordingWidget()
+        DayWidget()
+    }
 }
 
 struct RecordingWidget: Widget {
