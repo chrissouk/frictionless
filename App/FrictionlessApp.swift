@@ -8,9 +8,14 @@ struct FrictionlessApp: App {
         WindowGroup {
             TasksView().environmentObject(model)
                 .tint(Theme.mint).preferredColorScheme(.dark)
-                .task { await model.reload() }
-                .onChange(of: phase) { _, value in
-                    if value == .active { Task { await model.reload() } }
+                .task(id: phase) {
+                    guard phase == .active else { return }
+                    await model.reload()
+                    while !Task.isCancelled {
+                        do { try await Task.sleep(for: .seconds(60)) }
+                        catch { return }
+                        await model.reload()
+                    }
                 }
                 .alert("Change could not be saved", isPresented: Binding(
                     get: { model.error != nil }, set: { if !$0 { model.error = nil } })) {

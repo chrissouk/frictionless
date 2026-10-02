@@ -88,3 +88,13 @@ func durationLabel(_ seconds: TimeInterval) -> String {
     if minutes < 60 { return "\(minutes)m" }
     return "\(minutes / 60)h \(minutes % 60)m"
 }
+
+/// Include midnight exactly so the next calendar day's clock starts empty.
+enum WidgetDates {
+    static func make(now: Date, calendar: Calendar = .current) -> [Date] {
+        let midnight = calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: now))!
+        var dates = (0..<60).map { now.addingTimeInterval(Double($0) * 60) }
+        if midnight <= dates.last!, !dates.contains(midnight) { dates.append(midnight) }
+        return dates.sorted()
+    }
+}

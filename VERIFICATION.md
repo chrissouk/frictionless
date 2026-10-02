@@ -28,7 +28,7 @@ No physical iPhone was available for testing. Select your actual developer team 
 
 The Live Activity extension compiles. Physical Lock Screen/compact/minimal/expanded Dynamic Island presentation, Switch! opening the picker while locked/after app termination, disabled/dismissed activities, and eight-hour expiration still need device verification. Do not interpret simulator UI tests as proof of those physical-device behaviors. VoiceOver labels and Dynamic Type are implemented; a spoken VoiceOver pass on hardware remains unchecked.
 
-Presentation has an eight-hour active lifetime; recording continues from saved timestamps. There is no renewal service. Reference: [Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities).
+Presentation has an eight-hour active lifetime; recording continues from saved timestamps. That baseline had no renewal service; see the issues 3/4/6 update below for the bounded iOS 26 successor. Reference: [Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities).
 
 ## Simulator environment
 
@@ -46,3 +46,12 @@ App Group access requires simulator entitlements, so do not build tests with `CO
 - The four cardinal labels are 00, 06, 12, and 18. VoiceOver describes the clock orientation; the existing bars and timeline provide readable details.
 - Timeline entries and gaps now display newest first.
 - The full 13 unit / 4 UI test suite passed. Targeted audit and largest-text checks passed after drawing refinements, including the clock's presence and reverse interval ordering.
+
+# Issues 3, 4, and 6 — October 1, 2026
+
+- Added an iOS 26 scheduled Live Activity successor with the original interval ID/start, cancellation of obsolete activities, legacy-activity migration, and foreground replenishment. The queue holds one successor; roughly sixteen hours without interaction is the intended bound, not indefinite renewal. iOS requires an alert for its scheduled start. Older iOS recreates expired presentation on app/widget interaction. No backend or guaranteed background wakeup was added.
+- Shared the refined day clock between audit and small/medium Home Screen widgets. Labels sit outside the ring/ticks; a tracked-time total sits inside. Widget timelines derive arcs/totals from persisted intervals and include midnight exactly. The medium widget offers the first three ordered, unarchived tasks, Stop, and All tasks through a LiveActivityIntent and the existing SQLite transactions.
+- The full **16 unit + 4 UI tests passed** on iPhone 17 Pro / iOS 26 with Xcode 26.0.1 and ad-hoc simulator signing. Added coverage for scheduled renewal dates/original starts/legacy decoding, independent-store widget switching/stopping/same-task no-op/stale task rejection, and widget midnight rollover. Existing concurrency, history, calendar/DST, audit correction, relaunch, and large-text checks passed.
+- Inspected the recorded-history audit screenshot: 06/18 labels clear the ring and ticks, and the tracked total renders inside the clock. Widget extension and App Intent metadata compiled successfully.
+- The additional iOS 17 compatibility build compiled, but its UI launch stalled; that runtime test is incomplete. Disk pressure offloaded the synced checkout during verification. All modified sources were recovered and preserved in an unsynced checkout; no files were deleted.
+- **Hardware checks remain:** add both widget sizes, tap each switch/Stop with the app terminated, rename/archive/reorder while widgets are visible, observe midnight and time-zone changes, verify disabled Live Activities/system activity limits, and observe the actual scheduled eight-hour handoff and required alert. Simulator tests do not establish those device behaviors.

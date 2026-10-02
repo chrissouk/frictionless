@@ -33,6 +33,11 @@
 		E2BC3EED3111F86CF1FDBF35 /* LiveRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339A4B4A1C277E075534326 /* LiveRecording.swift */; };
 		E602408AEFEB5A182C0B74D4 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A015D5FF237B01A4A2D3F5 /* TasksView.swift */; };
 		ED2B59A9A79276632B76A9DB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D93180F4E89D587364355 /* Theme.swift */; };
+		A64D97C6E06296D64F23D746 /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FF3CD5AD3809D863F39E7; };
+		D84683C3125FFEE4865970B7 /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FF3CD5AD3809D863F39E7; };
+		256AA7D1A5D2A5B4566FC10C /* RecordingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D62FDCACB066F74DE6D7; };
+		B724FC950BBFDD363758FB78 /* RecordingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D62FDCACB066F74DE6D7; };
+		BB5A85589DE83E1298F16A3C /* DayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87761621DA5E0B576133B7; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +102,9 @@
 		DC557E69E33F1D6121A4B100 /* AuditView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuditView.swift; path = App/AuditView.swift; sourceTree = "<group>"; };
 		F4DCCB32432EDF461FB0D873 /* RecordingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordingTests.swift; path = Tests/RecordingTests.swift; sourceTree = "<group>"; };
 		FCAE727694EDF1F5BD09D75F /* Frictionless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frictionless.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C9FF3CD5AD3809D863F39E7 /* DayClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared/DayClock.swift; sourceTree = "<group>"; };
+		EE70D62FDCACB066F74DE6D7 /* RecordingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared/RecordingIntent.swift; sourceTree = "<group>"; };
+		DA87761621DA5E0B576133B7 /* DayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivity/DayWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,9 @@
 		5239D297EDDD9E7E1CFA060F = {
 			isa = PBXGroup;
 			children = (
+				DA87761621DA5E0B576133B7 /* DayWidget.swift */,
+				EE70D62FDCACB066F74DE6D7 /* RecordingIntent.swift */,
+				1C9FF3CD5AD3809D863F39E7 /* DayClock.swift */,
 				1AE2CFEDA1D6433B14DEF610 /* Products */,
 				8B2BB81FC85B565C9AEEDFD0 /* Frameworks */,
 				6BC93A54DE8326F6A9AEC482 /* RecordingStore.swift */,
@@ -342,6 +353,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256AA7D1A5D2A5B4566FC10C /* RecordingIntent.swift in Sources */,
+				A64D97C6E06296D64F23D746 /* DayClock.swift in Sources */,
 				4EFC212333015D0E1C31A3E9 /* RecordingStore.swift in Sources */,
 				5C3996D404A00EC925278F26 /* Models.swift in Sources */,
 				B9E551E448355D524D5C8F83 /* Theme.swift in Sources */,
@@ -359,6 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5A85589DE83E1298F16A3C /* DayWidget.swift in Sources */,
+				B724FC950BBFDD363758FB78 /* RecordingIntent.swift in Sources */,
+				D84683C3125FFEE4865970B7 /* DayClock.swift in Sources */,
 				0AE9447A9A029BB6EFEE4CF5 /* RecordingStore.swift in Sources */,
 				AA3E5968C840B20F39A3D505 /* Models.swift in Sources */,
 				ED2B59A9A79276632B76A9DB /* Theme.swift in Sources */,
