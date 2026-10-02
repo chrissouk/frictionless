@@ -6,7 +6,7 @@ struct FrictionlessApp: App {
     @Environment(\.scenePhase) private var phase
     var body: some Scene {
         WindowGroup {
-            TasksView().environmentObject(model)
+            content.environmentObject(model)
                 .tint(Theme.mint).preferredColorScheme(.dark)
                 .task(id: phase) {
                     guard phase == .active else { return }
@@ -21,6 +21,16 @@ struct FrictionlessApp: App {
                     get: { model.error != nil }, set: { if !$0 { model.error = nil } })) {
                     Button("OK") { model.error = nil }
                 } message: { Text(model.error ?? "") }
+        }
+    }
+
+    @ViewBuilder private var content: some View {
+        if !model.loaded {
+            ZStack { Theme.background.ignoresSafeArea(); ProgressView() }
+        } else if model.onboarding != .complete {
+            OnboardingView()
+        } else {
+            TasksView()
         }
     }
 }
