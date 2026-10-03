@@ -66,7 +66,7 @@ struct AuditView: View {
                 if let interval = segment.interval, let task = model.state.tasks.first(where: { $0.id == interval.taskID }) {
                     Image(systemName: "circle.fill").font(.caption2).foregroundStyle(Theme.color(task.color))
                     Text(task.name).font(.headline)
-                    if interval.end == nil { Text("Recording").font(.caption).foregroundStyle(Theme.mint) }
+                    if interval.end == nil { Text("Recording").font(.caption).foregroundStyle(Theme.banana) }
                 } else {
                     Image(systemName: "circle.dashed").foregroundStyle(.secondary)
                     Text("Untracked").foregroundStyle(.secondary)

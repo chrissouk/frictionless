@@ -1,5 +1,9 @@
 import Foundation
 
+enum FruitPalette {
+    static let names = ["Banana", "Blueberry", "Peach", "Grape", "Pear", "Apple", "Orange"]
+}
+
 struct TrackedTask: Codable, Identifiable, Equatable {
     var id = UUID()
     var name: String

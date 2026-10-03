@@ -7,7 +7,7 @@ struct FrictionlessApp: App {
     var body: some Scene {
         WindowGroup {
             TasksView().environmentObject(model)
-                .tint(Theme.mint).preferredColorScheme(.dark)
+                .tint(Theme.banana).preferredColorScheme(.dark)
                 .task(id: phase) {
                     guard phase == .active else { return }
                     await model.reload()
