@@ -478,6 +478,7 @@
 				DEVELOPMENT_TEAM = K94U358ZY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
 				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -501,6 +502,7 @@
 				DEVELOPMENT_TEAM = K94U358ZY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Configuration/Widget-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Frictionless;
 				INFOPLIST_KEY_RecordingAppGroup = "$(APP_GROUP_ID)";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
