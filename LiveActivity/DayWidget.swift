@@ -75,10 +75,10 @@ struct DayWidgetView: View {
                     }
                     if entry.state.active != nil {
                         Button("Stop", intent: SwitchRecordingIntent(taskID: "stop"))
-                            .font(.caption).tint(Theme.mint)
+                            .font(.caption).tint(Theme.banana)
                     }
                     Link("All tasks", destination: URL(string: "frictionless://tasks")!)
-                        .font(.caption).foregroundStyle(Theme.mint)
+                        .font(.caption).foregroundStyle(Theme.banana)
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
         }.foregroundStyle(Theme.text).widgetURL(URL(string: "frictionless://tasks"))

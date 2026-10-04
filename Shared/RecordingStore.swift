@@ -148,7 +148,7 @@ actor RecordingStore {
                 if let color { state.tasks[index].color = color }
             } else {
                 let count = state.tasks.count
-                state.tasks.append(TrackedTask(name: trimmed, color: color ?? count % 6, order: count))
+                state.tasks.append(TrackedTask(name: trimmed, color: color ?? count % FruitPalette.names.count, order: count))
             }
             state.undo = nil
             return true

@@ -14,7 +14,7 @@ struct RecordingWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: RecordingAttributes.self) { context in
             ActivityControls(state: context.state)
-                .padding(16).activityBackgroundTint(Theme.background).activitySystemActionForegroundColor(Theme.mint)
+                .padding(16).activityBackgroundTint(Theme.background).activitySystemActionForegroundColor(Theme.banana)
                 .widgetURL(URL(string: "frictionless://tasks"))
         } dynamicIsland: { context in
             DynamicIsland {

@@ -27,7 +27,7 @@ struct ManageTasksView: View {
                     }
                 } footer: { Text("Drag to reorder. Tap to edit.") }
                 HStack {
-                    Image(systemName: "plus.circle.fill").foregroundStyle(Theme.mint)
+                    Image(systemName: "plus.circle.fill").foregroundStyle(Theme.banana)
                         .accessibilityHidden(true)
                     TextField("New task", text: $newTaskName)
                         .accessibilityIdentifier("new-task-name")
@@ -78,9 +78,9 @@ struct TaskEditorView: View {
                 TextField("Task name", text: $name).accessibilityIdentifier("task-name")
                 if let validation { Text(validation).foregroundStyle(.red) }
                 Picker("Color", selection: $color) {
-                    ForEach(0..<6) { index in
+                    ForEach(FruitPalette.names.indices, id: \.self) { index in
                         Label {
-                            Text(colorNames[index])
+                            Text(FruitPalette.names[index])
                         } icon: {
                             Circle().fill(Theme.color(index)).frame(width: 16, height: 16)
                         }.tag(index)
@@ -115,5 +115,4 @@ struct TaskEditorView: View {
                 }
         }
     }
-    private let colorNames = ["Mint", "Slate", "Sand", "Lavender", "Sage", "Rose"]
 }
