@@ -19,15 +19,6 @@ struct TasksView: View {
                             activeRow(task, start: interval.start)
                                 .padding(.bottom, 28)
                         }
-                        if model.state.visibleTasks.isEmpty {
-                            VStack(alignment: .leading, spacing: 20) {
-                                Text("Add a task, then tap it to record.")
-                                    .foregroundStyle(.secondary)
-                                Button("Add task", systemImage: "plus") { management = true }
-                                    .buttonStyle(.borderedProminent).foregroundStyle(Theme.background)
-                                    .frame(minHeight: 44)
-                            }.padding(.bottom, 28)
-                        }
                         Text("What’s next?").font(.title3.weight(.semibold))
                             .padding(.bottom, 12)
                             .accessibilityAddTraits(.isHeader)
