@@ -60,6 +60,7 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 10))
         XCTAssertEqual(app.buttons["task-Reading"].value as? String, "Recording")
         app.buttons["Today"].tap()
+        app.swipeUp()
         XCTAssertTrue(app.staticTexts["Timeline"].waitForExistence(timeout: 5))
         capture(app, "Daily audit")
         app.buttons["interval-Reading"].firstMatch.tap()
@@ -70,6 +71,53 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Undo"].waitForExistence(timeout: 5))
         app.buttons["Undo"].tap()
         XCTAssertTrue(app.buttons["Stop tracking"].waitForExistence(timeout: 5))
+    }
+
+    func testWeeklyNavigationUntrackedDeletionAndRestore() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--ui-testing", "--reset-ui-storage", "--audit-fixture"]
+        app.launch()
+        XCTAssertTrue(app.buttons["Today"].waitForExistence(timeout: 10))
+        app.buttons["Today"].tap()
+        let header = app.buttons["Previous day"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            .withOffset(CGVector(dx: 150, dy: 0))
+        header.press(forDuration: 0.1, thenDragTo: header.withOffset(CGVector(dx: 120, dy: 0)))
+        XCTAssertTrue(app.buttons["Back to today"].waitForExistence(timeout: 5))
+        header.press(forDuration: 0.1, thenDragTo: header.withOffset(CGVector(dx: -120, dy: 0)))
+        XCTAssertFalse(app.buttons["Next day"].isEnabled)
+        app.buttons["Week"].tap()
+        XCTAssertTrue(app.staticTexts["Tracked this week"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["Next week"].isEnabled)
+        capture(app, "Weekly summary")
+        app.buttons["Previous week"].tap()
+        XCTAssertTrue(app.buttons["Next week"].isEnabled)
+        app.buttons["Next week"].tap()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        // Monday may place yesterday in the previous calendar week.
+        if !app.buttons[yesterday.formatted(date: .abbreviated, time: .omitted)].exists {
+            app.buttons["Previous week"].tap()
+        }
+        app.buttons[yesterday.formatted(date: .abbreviated, time: .omitted)].tap()
+        app.swipeUp()
+        let reading = app.buttons["interval-Reading"].firstMatch
+        XCTAssertTrue(reading.waitForExistence(timeout: 5))
+        reading.swipeRight()
+        app.buttons["Untracked"].tap()
+        let untracked = app.buttons["interval-Untracked"].firstMatch
+        XCTAssertTrue(untracked.waitForExistence(timeout: 5))
+        untracked.tap()
+        app.buttons["Save"].tap()
+        XCTAssertTrue(reading.waitForExistence(timeout: 5))
+        reading.swipeLeft()
+        app.buttons["Delete"].tap()
+        XCTAssertFalse(reading.exists)
+        app.buttons["Recently deleted"].tap()
+        XCTAssertTrue(app.buttons["restore-Reading"].waitForExistence(timeout: 5))
+        capture(app, "Recoverable deleted event")
+        app.buttons["restore-Reading"].tap()
+        app.navigationBars["Recently deleted"].buttons["Done"].tap()
+        XCTAssertTrue(reading.waitForExistence(timeout: 5))
+        capture(app, "Restored event in timeline")
     }
 
     func testTaskColorEditing() {
@@ -104,7 +152,7 @@ final class FrictionlessUITests: XCTestCase {
         XCTAssertTrue(app.buttons["task-Writing"].waitForExistence(timeout: 10))
         app.buttons["Today"].tap()
         app.buttons["Previous day"].tap()
-        XCTAssertTrue(app.staticTexts["2h 0m"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.otherElements["day-clock"].value as? String, "2h 0m")
         XCTAssertTrue(app.otherElements["day-clock"].exists)
         capture(app, "Daily audit with history")
         app.swipeUp()
@@ -121,7 +169,8 @@ final class FrictionlessUITests: XCTestCase {
         expectation(for: closed, evaluatedWith: app.navigationBars["Correct interval"])
         waitForExpectations(timeout: 5)
         capture(app, "Audit after correction")
-        XCTAssertTrue(app.staticTexts["2h 0m"].exists)
+        app.swipeDown()
+        XCTAssertEqual(app.otherElements["day-clock"].value as? String, "2h 0m")
     }
 
     func testAccessibilityLargeText() {

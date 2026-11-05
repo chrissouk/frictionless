@@ -17,6 +17,8 @@ struct RecordedInterval: Codable, Identifiable, Equatable {
     var taskID: UUID
     var start: Date
     var end: Date?
+    var untrackedAt: Date?
+    var deletedAt: Date?
 }
 
 struct UndoRecord: Codable {
@@ -31,7 +33,7 @@ struct RecordingState: Codable {
     var intervals: [RecordedInterval] = []
     var revision = 0
     var undo: UndoRecord?
-    var active: RecordedInterval? { intervals.first { $0.end == nil } }
+    var active: RecordedInterval? { intervals.first { $0.end == nil && $0.deletedAt == nil && $0.untrackedAt == nil } }
     var visibleTasks: [TrackedTask] {
         tasks.filter { !$0.archived }.sorted { $0.order < $1.order }
     }
@@ -67,7 +69,7 @@ struct DailyAudit {
         var cursor = lower
         var segments: [AuditSegment] = []
         var totals: [UUID: TimeInterval] = [:]
-        for interval in state.intervals.sorted(by: { $0.start < $1.start }) {
+        for interval in state.intervals.filter({ $0.deletedAt == nil }).sorted(by: { $0.start < $1.start }) {
             let start = max(interval.start, lower)
             let end = min(interval.end ?? now, upper)
             guard end > start else { continue }
@@ -75,7 +77,9 @@ struct DailyAudit {
                 segments.append(AuditSegment(id: "gap-\(cursor.timeIntervalSince1970)", start: cursor, end: start))
             }
             segments.append(AuditSegment(id: interval.id.uuidString, interval: interval, start: start, end: end))
-            totals[interval.taskID, default: 0] += end.timeIntervalSince(start)
+            if interval.untrackedAt == nil {
+                totals[interval.taskID, default: 0] += end.timeIntervalSince(start)
+            }
             cursor = end
         }
         if cursor < upper {
@@ -100,5 +104,43 @@ enum WidgetDates {
         var dates = (0..<60).map { now.addingTimeInterval(Double($0) * 60) }
         if midnight <= dates.last!, !dates.contains(midnight) { dates.append(midnight) }
         return dates.sorted()
+    }
+}
+
+struct WeeklyAudit {
+    struct Day: Identifiable {
+        var date: Date
+        var audit: DailyAudit
+        var id: Date { date }
+    }
+    var start: Date
+    var end: Date
+    var days: [Day]
+    var totals: [UUID: TimeInterval]
+    var tracked: TimeInterval { totals.values.reduce(0, +) }
+
+    static func make(state: RecordingState, day: Date, now: Date, calendar: Calendar = .current) -> WeeklyAudit {
+        let week = calendar.dateInterval(of: .weekOfYear, for: day)!
+        let days = (0..<7).map { offset in
+            let date = calendar.date(byAdding: .day, value: offset, to: week.start)!
+            return Day(date: date, audit: DailyAudit.make(state: state, day: date, now: now, calendar: calendar))
+        }
+        var totals: [UUID: TimeInterval] = [:]
+        for day in days {
+            for (id, duration) in day.audit.totals { totals[id, default: 0] += duration }
+        }
+        return WeeklyAudit(start: week.start, end: week.end, days: days, totals: totals)
+    }
+}
+
+extension RecordingState {
+    func rankedTasks(totals: [UUID: TimeInterval]) -> [TrackedTask] {
+        tasks.filter { totals[$0.id, default: 0] > 0 }.sorted {
+            let left = totals[$0.id, default: 0]
+            let right = totals[$1.id, default: 0]
+            if left != right { return left > right }
+            if $0.order != $1.order { return $0.order < $1.order }
+            return $0.id.uuidString < $1.id.uuidString
+        }
     }
 }

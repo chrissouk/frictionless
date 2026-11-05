@@ -30,6 +30,23 @@ struct IntervalEditorView: View {
                 if interval.end != nil || finish {
                     DatePicker("Ended", selection: $end, in: ...Date(), displayedComponents: [.date, .hourAndMinute])
                 }
+                Section {
+                    if interval.untrackedAt == nil {
+                        Button("Mark as untracked", systemImage: "circle.dashed") {
+                            Task {
+                                if await model.perform({ try await model.store.markUntracked(interval.id) }) { dismiss() }
+                            }
+                        }.disabled(model.busy)
+                    } else {
+                        Text("Choose a task and save to track this time again.").foregroundStyle(.secondary)
+                    }
+                    Button("Delete event", systemImage: "trash", role: .destructive) {
+                        Task {
+                            if await model.perform({ try await model.store.removeInterval(interval.id) }) { dismiss() }
+                        }
+                    }.disabled(model.busy)
+                    Text("Deleted events can be restored from Recently deleted.").font(.caption).foregroundStyle(.secondary)
+                }
                 if let validation { Text(validation).foregroundStyle(.red) }
             }.scrollContentBackground(.hidden).background(Theme.background)
                 .navigationTitle("Correct interval").navigationBarTitleDisplayMode(.inline)
@@ -41,7 +58,7 @@ struct IntervalEditorView: View {
     }
 
     private var previousInterval: RecordedInterval? {
-        model.state.intervals.first { $0.end == interval.start && $0.id != interval.id }
+        model.state.intervals.first { $0.end == interval.start && $0.id != interval.id && $0.deletedAt == nil }
     }
 
     private func save() async {
