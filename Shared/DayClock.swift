@@ -11,6 +11,7 @@ struct DayClock: View {
         }.frame(maxWidth: 280).aspectRatio(1, contentMode: .fit)
             .frame(maxWidth: .infinity)
             .accessibilityIdentifier("day-clock")
+            .accessibilityValue(durationLabel(segments.filter { $0.interval != nil && $0.interval?.untrackedAt == nil }.reduce(0) { $0 + $1.duration }))
             .accessibilityLabel("24-hour clock. Midnight at the top, 6 AM at the right, noon at the bottom, 6 PM at the left. Colored arcs show tracked time; dark arcs are untracked.")
     }
 
@@ -23,7 +24,7 @@ struct DayClock: View {
             context.stroke(Path(ellipseIn: outer), with: .color(Theme.surface), lineWidth: ringWidth)
 
             for segment in segments {
-                guard let interval = segment.interval,
+                guard let interval = segment.interval, interval.untrackedAt == nil,
                       let task = tasks.first(where: { $0.id == interval.taskID }) else { continue }
                 var minute = segment.start
                 var arc = Path()
@@ -50,21 +51,6 @@ struct DayClock: View {
                 context.fill(arc, with: .color(Theme.color(task.color)))
             }
 
-            for edge in [radius - ringWidth / 2, radius + ringWidth / 2] {
-                let border = CGRect(x: center.x - edge, y: center.y - edge, width: edge * 2, height: edge * 2)
-                context.stroke(Path(ellipseIn: border), with: .color(Theme.text.opacity(0.12)), lineWidth: 1)
-            }
-            for hour in 0..<24 {
-                let angle = Double(hour) * .pi / 12 - .pi / 2
-                let cosine = CGFloat(Foundation.cos(angle))
-                let sine = CGFloat(Foundation.sin(angle))
-                var tick = Path()
-                tick.move(to: CGPoint(x: center.x + cosine * (radius + ringWidth / 2 + 4),
-                                     y: center.y + sine * (radius + ringWidth / 2 + 4)))
-                tick.addLine(to: CGPoint(x: center.x + cosine * (radius + ringWidth / 2 + 8),
-                                        y: center.y + sine * (radius + ringWidth / 2 + 8)))
-                context.stroke(tick, with: .color(Theme.text.opacity(0.5)), lineWidth: 1)
-            }
             let labelRadius = min(size.width, size.height) * 0.46
             for (hour, label) in [(0, "00"), (6, "06"), (12, "12"), (18, "18")] {
                 let angle = Double(hour) * .pi / 12 - .pi / 2
@@ -74,7 +60,7 @@ struct DayClock: View {
                     .foregroundStyle(Theme.text.opacity(0.6)), at: point)
             }
             if showsTotal {
-                let tracked = segments.filter { $0.interval != nil }.reduce(0) { $0 + $1.duration }
+                let tracked = segments.filter { $0.interval != nil && $0.interval?.untrackedAt == nil }.reduce(0) { $0 + $1.duration }
                 context.draw(Text(durationLabel(tracked)).font(.system(size: min(size.width, size.height) * 0.08,
                     weight: .semibold, design: .rounded)).foregroundStyle(Theme.text), at: center)
                 context.draw(Text("TRACKED").font(.system(size: 9, weight: .medium))

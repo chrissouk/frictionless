@@ -183,7 +183,7 @@ actor RecordingStore {
 
     func correct(id: UUID, taskID: UUID, start: Date, end: Date?, now: Date = Date(), previousID: UUID? = nil) throws -> RecordingState {
         try mutate { state in
-            guard let index = state.intervals.firstIndex(where: { $0.id == id }),
+            guard let index = state.intervals.firstIndex(where: { $0.id == id && $0.deletedAt == nil }),
                   state.tasks.contains(where: { $0.id == taskID }) else { throw RecordingError.invalid("Record not found.") }
             let original = state.intervals[index]
             if original.taskID != taskID && state.tasks.contains(where: { $0.id == taskID && $0.archived }) {
@@ -192,7 +192,7 @@ actor RecordingStore {
             guard start <= now, (end ?? now) <= now else { throw RecordingError.invalid("Recorded time cannot be in the future.") }
             if original.end != nil && end == nil { throw RecordingError.invalid("A finished record must have an end time.") }
             if let previousID {
-                guard let previousIndex = state.intervals.firstIndex(where: { $0.id == previousID }),
+                guard let previousIndex = state.intervals.firstIndex(where: { $0.id == previousID && $0.deletedAt == nil }),
                       previousID != id, state.intervals[previousIndex].end == original.start else {
                     throw RecordingError.invalid("The previous boundary changed. Reload this correction.")
                 }
@@ -204,11 +204,47 @@ actor RecordingStore {
         }
     }
 
+    // Soft deletion preserves the original event indefinitely, including after relaunch.
+    func removeInterval(_ id: UUID, now: Date = Date()) throws -> RecordingState {
+        try updateDisposition(id, now: now, deleting: true)
+    }
+
+    func markUntracked(_ id: UUID, now: Date = Date()) throws -> RecordingState {
+        try updateDisposition(id, now: now, deleting: false)
+    }
+
+    private func updateDisposition(_ id: UUID, now: Date, deleting: Bool) throws -> RecordingState {
+        try mutate { state in
+            guard let index = state.intervals.firstIndex(where: { $0.id == id && $0.deletedAt == nil }) else {
+                throw RecordingError.invalid("This event changed. Reload and try again.")
+            }
+            if state.intervals[index].end == nil {
+                guard now >= state.intervals[index].start else { throw RecordingError.invalid("Correct the recording start first.") }
+                state.intervals[index].end = now
+            }
+            if deleting { state.intervals[index].deletedAt = now }
+            else { state.intervals[index].untrackedAt = now }
+            state.undo = nil
+            return true
+        }
+    }
+
+    func restoreInterval(_ id: UUID) throws -> RecordingState {
+        try mutate { state in
+            guard let index = state.intervals.firstIndex(where: { $0.id == id && $0.deletedAt != nil }) else {
+                throw RecordingError.invalid("Deleted event not found.")
+            }
+            state.intervals[index].deletedAt = nil
+            state.undo = nil
+            return true
+        }
+    }
+
     private func validate(_ state: RecordingState) throws {
         guard state.intervals.filter({ $0.end == nil }).count <= 1 else { throw RecordingError.invalid("Multiple open records detected. Saved history has been preserved.") }
         var previousEnd: Date?
         var previousWasOpen = false
-        let sorted = state.intervals.sorted { left, right in
+        let sorted = state.intervals.filter { $0.deletedAt == nil }.sorted { left, right in
             if left.start != right.start { return left.start < right.start }
             if left.end == nil { return false }
             if right.end == nil { return true }

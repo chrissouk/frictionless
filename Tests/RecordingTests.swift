@@ -19,6 +19,116 @@ final class RecordingTests: XCTestCase {
         return try await store.saveTask(name: "Rest").visibleTasks
     }
 
+    func testDeletedEventSurvivesRelaunchAndRestoresOriginalTime() async throws {
+        let tasks = try await tasks()
+        _ = try await store.switchTask(tasks[0].id, now: epoch)
+        let before = try await store.switchTask(tasks[1].id, now: epoch.addingTimeInterval(60))
+        let event = before.intervals[0]
+        let deleted = try await store.removeInterval(event.id, now: epoch.addingTimeInterval(90))
+        XCTAssertEqual(deleted.intervals.count, 2)
+        XCTAssertEqual(deleted.intervals[0].start, event.start)
+        XCTAssertEqual(deleted.intervals[0].end, event.end)
+        XCTAssertEqual(deleted.active, before.active)
+        XCTAssertNil(deleted.undo)
+        let independent = RecordingStore(url: directory.appendingPathComponent("test.sqlite"))
+        let reopened = try await independent.snapshot()
+        XCTAssertNotNil(reopened.intervals[0].deletedAt)
+        let restored = try await independent.restoreInterval(event.id)
+        XCTAssertEqual(restored.intervals, before.intervals)
+    }
+
+    func testUntrackedStopsActiveAndCanBeReassignedWithoutChangingNeighbors() async throws {
+        let tasks = try await tasks()
+        _ = try await store.switchTask(tasks[0].id, now: epoch)
+        let before = try await store.switchTask(tasks[1].id, now: epoch.addingTimeInterval(60))
+        let active = try XCTUnwrap(before.active)
+        let untracked = try await store.markUntracked(active.id, now: epoch.addingTimeInterval(120))
+        XCTAssertNil(untracked.active)
+        XCTAssertEqual(untracked.intervals[0], before.intervals[0])
+        XCTAssertEqual(untracked.intervals[1].start, before.intervals[0].end)
+        let audit = DailyAudit.make(state: untracked, day: epoch, now: epoch.addingTimeInterval(180))
+        XCTAssertEqual(audit.tracked, 60)
+        XCTAssertNotNil(audit.segments.first { $0.interval?.id == active.id }?.interval?.untrackedAt)
+        let restored = try await store.correct(id: active.id, taskID: tasks[0].id, start: active.start,
+                                               end: epoch.addingTimeInterval(120), now: epoch.addingTimeInterval(180))
+        XCTAssertNil(restored.intervals[1].untrackedAt)
+        XCTAssertEqual(DailyAudit.make(state: restored, day: epoch, now: epoch.addingTimeInterval(180)).tracked, 120)
+    }
+
+    func testDeletingActiveStopsRecordingAndRestoreDoesNotRestartIt() async throws {
+        let tasks = try await tasks()
+        let before = try await store.switchTask(tasks[0].id, now: epoch)
+        let active = try XCTUnwrap(before.active)
+        let deleted = try await store.removeInterval(active.id, now: epoch.addingTimeInterval(60))
+        XCTAssertNil(deleted.active)
+        XCTAssertEqual(deleted.intervals[0].end, epoch.addingTimeInterval(60))
+        _ = try await store.switchTask(tasks[1].id, now: epoch.addingTimeInterval(90))
+        let restored = try await store.restoreInterval(active.id)
+        XCTAssertEqual(restored.active?.taskID, tasks[1].id)
+        XCTAssertEqual(restored.intervals.filter { $0.end == nil }.count, 1)
+    }
+
+    func testRestoreRejectsOverlapAndPreservesDeletedRecord() async throws {
+        let tasks = try await tasks()
+        _ = try await store.switchTask(tasks[0].id, now: epoch)
+        let before = try await store.switchTask(tasks[1].id, now: epoch.addingTimeInterval(60))
+        _ = try await store.removeInterval(before.intervals[0].id)
+        _ = try await store.correct(id: before.intervals[1].id, taskID: tasks[1].id, start: epoch,
+                                    end: nil, now: epoch.addingTimeInterval(180))
+        do {
+            _ = try await store.restoreInterval(before.intervals[0].id)
+            XCTFail("Overlapping restore accepted")
+        } catch { XCTAssertNotNil(error as? RecordingError) }
+        let saved = try await store.snapshot()
+        XCTAssertNotNil(saved.intervals[0].deletedAt)
+        XCTAssertEqual(saved.active?.start, epoch)
+    }
+
+    func testWeeklySummaryUsesCalendarWeeksDSTAndExcludesDeletedAndUntracked() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "America/New_York")!
+        calendar.firstWeekday = 2
+        let task = TrackedTask(name: "Work", color: 0, order: 0)
+        for (month, dayNumber, hours) in [(3, 2, 167), (10, 26, 169)] {
+            let start = calendar.date(from: DateComponents(year: 2026, month: month, day: dayNumber))!
+            let end = calendar.date(byAdding: .day, value: 7, to: start)!
+            let event = RecordedInterval(taskID: task.id, start: start.addingTimeInterval(-3600), end: end.addingTimeInterval(3600))
+            var state = RecordingState(tasks: [task], intervals: [event])
+            let week = WeeklyAudit.make(state: state, day: start, now: end, calendar: calendar)
+            XCTAssertEqual(week.days.count, 7)
+            XCTAssertEqual(week.start, start)
+            XCTAssertEqual(week.end, end)
+            XCTAssertEqual(week.tracked, Double(hours * 3600))
+            XCTAssertEqual(week.days.reduce(0) { $0 + $1.audit.tracked }, week.tracked)
+            state.intervals[0].untrackedAt = end
+            XCTAssertEqual(WeeklyAudit.make(state: state, day: start, now: end, calendar: calendar).tracked, 0)
+            state.intervals[0].untrackedAt = nil
+            state.intervals[0].deletedAt = end
+            XCTAssertEqual(WeeklyAudit.make(state: state, day: start, now: end, calendar: calendar).tracked, 0)
+        }
+    }
+
+    func testCurrentWeekClipsOpenRecordingAndFutureDays() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        let now = calendar.date(from: DateComponents(year: 2026, month: 11, day: 4, hour: 12))!
+        let start = calendar.dateInterval(of: .weekOfYear, for: now)!.start
+        let task = TrackedTask(name: "Work", color: 0, order: 0)
+        let state = RecordingState(tasks: [task], intervals: [RecordedInterval(taskID: task.id, start: start)])
+        let week = WeeklyAudit.make(state: state, day: now, now: now, calendar: calendar)
+        XCTAssertEqual(week.tracked, now.timeIntervalSince(start))
+        XCTAssertTrue(week.days.filter { $0.date > now }.allSatisfy { $0.audit.tracked == 0 })
+    }
+
+    func testStatsRankByDurationWithStableTiesAndArchivedHistory() {
+        let short = TrackedTask(name: "Short", color: 0, order: 0)
+        let long = TrackedTask(name: "Long", color: 1, order: 1, archived: true)
+        let tied = TrackedTask(name: "Tied", color: 2, order: 2)
+        let state = RecordingState(tasks: [short, long, tied])
+        XCTAssertEqual(state.rankedTasks(totals: [short.id: 60, long.id: 120, tied.id: 60]).map(\.id),
+                       [long.id, short.id, tied.id])
+    }
+
     func testProductionAppGroupStorageCanOpen() async throws {
         let state = try await RecordingStore.shared.snapshot()
         XCTAssertLessThanOrEqual(state.intervals.filter { $0.end == nil }.count, 1)
