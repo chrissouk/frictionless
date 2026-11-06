@@ -64,3 +64,8 @@ App Group access requires simulator entitlements, so do not build tests with `CO
 - UI coverage exercises horizontal date-header drags, previous/next week navigation, tapping a daily bar to open its day, swipe-right Untracked, reassigning an untracked event in the editor, swipe-left Delete, and Recently deleted → Restore. Existing task switching/relaunch, audit correction, color persistence, and largest accessibility text flows pass.
 - Visually inspected the compact wheel, weekly summary, and largest-text audit screenshots. Saved [simplified day](Screenshots/simplified-day-2026-11-05.png), [weekly summary](Screenshots/weekly-summary-2026-11-05.png), and [Recently deleted](Screenshots/recently-deleted-2026-11-05.png) captures. Fixtures remain restricted to explicit debug UI-test launches.
 - No physical-device, Apple Developer signing, or spoken VoiceOver verification was performed. The shared widget clock compiles with the new untracked filtering; Home Screen widget interaction and Live Activity presentation still require hardware checks listed above.
+
+
+## Weekly task colors — November 5, 2026
+
+Weekly bars now stack task colors in proportion to each task's daily duration, in saved task order. Empty days have a neutral baseline. VoiceOver announces the total and task breakdown. The existing weekly navigation/untracked/delete/restore UI test passed again on iPhone 17 Pro / iOS 26 (`/tmp/FrictionlessWeeklyDerivedData/Logs/Test/Test-Frictionless-2026.11.05_20-12-16--0500.xcresult`). Visually verified the fixture's equal Writing/Reading durations render equal yellow/blue segments in the [updated weekly screenshot](Screenshots/weekly-summary-colors-2026-11-05.png). Storage logic is unchanged.

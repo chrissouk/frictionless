@@ -136,17 +136,35 @@ struct AuditView: View {
                     VStack(spacing: 8) {
                         VStack {
                             Spacer(minLength: 0)
-                            RoundedRectangle(cornerRadius: 5).fill(Theme.banana)
-                                .frame(height: max(2, 88 * entry.audit.tracked / peak))
+                            if entry.audit.tracked > 0 {
+                                VStack(spacing: 0) {
+                                    ForEach(model.state.tasks.sorted { $0.order < $1.order }) { task in
+                                        let duration = entry.audit.totals[task.id, default: 0]
+                                        if duration > 0 {
+                                            Rectangle().fill(Theme.color(task.color))
+                                                .frame(height: 88 * duration / peak)
+                                        }
+                                    }
+                                }.clipShape(RoundedRectangle(cornerRadius: 5))
+                            } else {
+                                RoundedRectangle(cornerRadius: 5).fill(Theme.surface).frame(height: 2)
+                            }
                         }.frame(height: 88)
                         Text(entry.date, format: .dateTime.weekday(.narrow)).font(.caption)
                     }.frame(maxWidth: .infinity)
                 }.buttonStyle(.plain).disabled(entry.date > now)
                     .accessibilityLabel(entry.date.formatted(date: .abbreviated, time: .omitted))
-                    .accessibilityValue(durationLabel(entry.audit.tracked))
+                    .accessibilityValue(weeklyDayDescription(entry.audit))
                     .accessibilityHint("Show this day")
             }
         }.padding(.vertical, 12)
+    }
+
+    private func weeklyDayDescription(_ audit: DailyAudit) -> String {
+        let breakdown = model.state.rankedTasks(totals: audit.totals).map { task in
+            "\(task.name), \(durationLabel(audit.totals[task.id, default: 0]))"
+        }
+        return ([durationLabel(audit.tracked)] + breakdown).joined(separator: "; ")
     }
 
     private func totals(_ values: [UUID: TimeInterval]) -> some View {
